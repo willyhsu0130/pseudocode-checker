@@ -1,18 +1,20 @@
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
+    margin: 0px; 
 }
-.main-row{
+
+.main-row {
     display: flex;
     justify-content: space-between;
 }
-.main-column{
-    background-color: blue;
+
+.main-column {
     padding: 10px;
     width: 650px;
     height: fit-content;
-    margin: 5px;
+    margin: 20px;
     line-height: 50px;
     color: white;
     font-weight: bold;
@@ -20,77 +22,161 @@
     text-align: center;
     border-radius: 10px;
 }
-.first-container{
+
+.first-container {
     background-color: beige;
     padding: 50px 50px;
 }
-.second-container{
-    background-color: #88C273;
-    padding: 20px 20px;
+
+.second-container {
+    background-color: rgb(215, 192, 174);
+    padding: 50px 50px;
 }
 
-.divide3{
-    background-color: #88C273;
+.second-container h2{
+    color: rgb(255, 241, 219);
+}
+
+.divide3 {
+    background-color: rgba(200, 200, 200);
     height: 300px;
 }
 
-.divide3 h3{
+.main-column h3 {
     margin: 0;
     font-size: 30px;
 }
-body{
+
+.divide2{
+    height: 300px;
+    background-color: rgb(255, 241, 219);
+
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: rgb(150, 126, 118);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: rgb(150, 126, 118);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.footer-row{
+    display: flex;
+    margin-bottom: 20px
+}
+
+.footer-row a{
+    margin-right: 50px 
+}
+
+
+body {
     font-family: Palatino, Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
 }
-nav{
+
+nav {
     margin: 0;
-    padding: 5px 5px;
+    padding: 0px 5px;
     background-color: rgb(238, 227, 203);
     color: rgb(150, 126, 118);
 }
-nav button{
+
+nav button {
     height: 50px;
     background-color: transparent;
     border: none;
     font-family: Palatino;
     font-size: 17px;
-    color:rgb(150, 126, 118);
+    color: rgb(150, 126, 118);
 }
-header{
-    background-color: rgb(183, 196, 207);
+
+header {
+    background-color: rgb(215, 192, 174);
     margin: 0;
     padding: 150px 50px;
     color: rgb(150, 126, 118);
 }
 
-header h1{
+header h1 {
     margin: 0;
     margin-bottom: 30px;
     font-size: 70px;
     font-weight: 900;
 }
-header p{
+
+header p {
     font-size: 20px;
 }
-main{
-    color:rgb(150, 126, 118);
-    padding: 0; 
+
+main {
+    color: rgb(150, 126, 118);
+    padding: 0;
     margin: 0;
-}
-main h2{
-    margin: 0;
-    padding-bottom: 50px;
-    font-size: 45px;
-}
-footer{
-    background-color: black;
 }
 
-#about-us{
+main h2 {
+    margin: 0;
+    margin-bottom: 35px;
+    padding-bottom: 0;
+    font-size: 45px;
+}
+main p{
+    margin-bottom: 60px;
+    font-size: 20px;
+}
+footer {
+    background-color: black;
+    color: white;
+    padding: 50px 50px;
+}
+
+#about-us {
     margin-right: 1000px;
 }
 
-#divide2{
+#divide2 {
     height: 300px;
 }
+
+#seperator{
+    border: solid white;
+}
+
