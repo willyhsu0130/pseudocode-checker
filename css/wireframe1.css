@@ -1,22 +1,22 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 0 10px;
-    margin: 0px; 
+    padding: 0px;
+    margin: 0px;
 }
 
 .main-row {
     display: flex;
     justify-content: space-between;
+    padding: 10px;
 }
 
 .main-column {
-    padding: 10px;
+    padding: 15px;
     width: 650px;
     height: fit-content;
-    margin: 20px;
+    margin: 10px;
     line-height: 50px;
-    color: white;
     font-weight: bold;
     font-size: 2em;
     text-align: center;
@@ -24,7 +24,7 @@
 }
 
 .first-container {
-    background-color: beige;
+    background-color: #D7D2B3;
     padding: 50px 50px;
 }
 
@@ -40,6 +40,7 @@
 .divide3 {
     background-color: white;
     height: 300px;
+    color: #BEAF9C;
 }
 
 .main-column h3 {
@@ -50,14 +51,13 @@
 .divide2{
     height: 300px;
     background-color: #B4A186;
+    color: white;
 
 }
 
 .dropbtn {
     background-color: transparent;
     color: rgb(150, 126, 118);
-    padding: 16px;
-    font-size: 16px;
     border: none;
     cursor: pointer;
 }
@@ -107,14 +107,14 @@
 
 
 body {
-    font-family: Palatino, Arial, Helvetica, sans-serif;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
 }
 
 nav {
     margin: 0;
-    padding: 0px 5px;
+    padding: 10px 30px 10px 30px;
     background-color: #D0D2B7;
     color: #6E6362;
 }
@@ -123,9 +123,16 @@ nav button {
     height: 50px;
     background-color: transparent;
     border: none;
-    font-family: Palatino;
-    font-size: 17px;
+    font-family: Avenir, Palatino;
+    font-size: 16px;
     color: rgb(150, 126, 118);
+    padding: 0px 2px;
+    border-radius: 5px;
+    font-weight: 800;
+}
+
+nav button:hover{
+    background-color: white;
 }
 
 header {
@@ -143,7 +150,7 @@ header h1 {
 }
 
 header p {
-    font-size: 20px;
+    font-size: 25px;
 }
 
 main {
@@ -162,15 +169,16 @@ main h2 {
 main p{
     margin-bottom: 60px;
     font-size: 20px;
+    line-height: 30px;
 }
 footer {
     background-color: #D0D2B7;
-    color: white;
+    color: #6E6362;
     padding: 50px 50px;
 }
 
 #about-us {
-    margin-right: 1000px;
+    margin-right: 1100px;
 }
 
 #divide2 {
@@ -178,6 +186,6 @@ footer {
 }
 
 #seperator{
-    border: solid white;
+    border: solid #6E6362;
 }
 
