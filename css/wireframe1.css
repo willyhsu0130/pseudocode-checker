@@ -29,16 +29,16 @@
 }
 
 .second-container {
-    background-color: rgb(215, 192, 174);
+    background-color: white;
     padding: 50px 50px;
 }
 
 .second-container h2{
-    color: rgb(255, 241, 219);
+    color: #6E6362;
 }
 
 .divide3 {
-    background-color: rgba(200, 200, 200);
+    background-color: white;
     height: 300px;
 }
 
@@ -49,7 +49,7 @@
 
 .divide2{
     height: 300px;
-    background-color: rgb(255, 241, 219);
+    background-color: #B4A186;
 
 }
 
@@ -115,8 +115,8 @@ body {
 nav {
     margin: 0;
     padding: 0px 5px;
-    background-color: rgb(238, 227, 203);
-    color: rgb(150, 126, 118);
+    background-color: #D0D2B7;
+    color: #6E6362;
 }
 
 nav button {
@@ -129,10 +129,10 @@ nav button {
 }
 
 header {
-    background-color: rgb(215, 192, 174);
+    background-color: white;
     margin: 0;
     padding: 150px 50px;
-    color: rgb(150, 126, 118);
+    color: #6E6362;
 }
 
 header h1 {
@@ -157,13 +157,14 @@ main h2 {
     margin-bottom: 35px;
     padding-bottom: 0;
     font-size: 45px;
+    color: #6E6362;
 }
 main p{
     margin-bottom: 60px;
     font-size: 20px;
 }
 footer {
-    background-color: black;
+    background-color: #D0D2B7;
     color: white;
     padding: 50px 50px;
 }
