@@ -17,7 +17,6 @@
     height: fit-content;
     margin: 10px;
     line-height: 50px;
-    font-weight: bold;
     font-size: 2em;
     text-align: center;
     border-radius: 10px;
@@ -73,9 +72,10 @@
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    border-top: solid black;
+    width: 125px;
 }
 
 /* Links inside the dropdown */
@@ -104,6 +104,10 @@
 .footer-row a{
     margin-right: 50px 
 }
+.footer-column{
+    justify-content: space-between;
+    margin-right: 5px;
+}
 
 
 body {
@@ -129,6 +133,7 @@ nav button {
     padding: 0px 2px;
     border-radius: 5px;
     font-weight: 800;
+    width: 125px;
 }
 
 nav button:hover{
@@ -151,6 +156,20 @@ header h1 {
 
 header p {
     font-size: 25px;
+}
+
+header button{
+    width: 280px;
+    height: 100px;
+    font-size: 30px;
+    font-family: avenir;
+    font-weight: 600;
+    border-radius: 20px;
+    color: #6E6362;
+}
+
+header button:hover{
+
 }
 
 main {
@@ -178,7 +197,7 @@ footer {
 }
 
 #about-us {
-    margin-right: 1100px;
+    margin-right: 1000px;
 }
 
 #divide2 {
