@@ -121,6 +121,9 @@ nav {
     padding: 10px 30px 10px 30px;
     background-color: #D0D2B7;
     color: #6E6362;
+    position: fixed;
+    right: 0px;
+    left: 0px;
 }
 
 nav button {
