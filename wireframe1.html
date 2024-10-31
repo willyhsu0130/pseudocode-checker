@@ -9,14 +9,16 @@
 
 <body>
     <nav>
-        <div class="navbar">
-            <img src="images/rabbit_logo.png" alt="logo of company" width="30" height="auto">
-            <div class="dropdown" id="about-us">
-                <button class="dropbtn">ABOUT US</button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+        <div class="navbar space-between">
+            <div class="flex">
+                <img src="images/rabbit_logo.png" alt="logo of company" width="30" height="auto">
+                <div class="dropdown" id="about-us">
+                    <button class="dropbtn">WHO WE ARE</button>
+                    <div class="dropdown-content">
+                        <a href="#">About us</a>
+                        <a href="#">Social Media</a>
+                        <a href="#">Social Impact</a>
+                    </div>
                 </div>
             </div>
             <button>LOGIN</button>
@@ -59,10 +61,26 @@
             <h2>How do I write correct pseudocode?</h2>
             <div class="main-row">
                 <div class="main-column divide2">
-                    <h3>Correct language and captilization</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores laborum voluptates atque
-                        animi natus ducimus illo nobis quas porro, ipsa, provident, nesciunt eum nam quaerat sint
-                        distinctio est magni.</p>
+                    <h3>The main constructs of pseudocode</h3>
+                    <p>The main constructs of pseudocode are essential for representing six fundamental programming
+                        concepts, always written in uppercase: SEQUENCE, CASE, WHILE, REPEAT-UNTIL, FOR, and
+                        IF-THEN-ELSE.
+                        These constructs, also called keywords, describe the control flow of an algorithm. </p>
+
+                    <ol>
+                        <li><b>SEQUENCE</b> represents linear tasks that are performed one after the other in order.
+                        </li>
+                        <li><b>WHILE</b> is a loop with acondition checked at the beginning.</li>
+                        <li><b>REPEAT-UNTIL</b> is a loop with a condition evaluated at the end. </li>
+                        <li><b>FOR</b> is another way of looping with a set number of iterations.</li>
+                        <li><b>IF-THEN-ELSE</b> is a conditional statement that changes the flow of the algorithm based
+                            on a
+                            specified condition.</li>
+                        <li><b>CASE</b> is a more generalized form of IF-THEN-ELSE, often used for multiple conditional
+                            branches.</li>
+                    </ol>
+                    <p>Together, these constructs allow for clear and logical representation of algorithms in
+                        pseudocode.</p>
                 </div>
                 <div class="main-column divide2">
                     <h3>Correct Indentation</h3>
@@ -73,22 +91,25 @@
     </main>
     <footer>
         <div class="footer-row flex-start footer-nav">
-            <a>Secuirty</a>
-            <a>Legal</a>
-            <a>Terms of service</a>
+            <a href="#">Secuirty</a>
+            <a href="#">Legal</a>
+            <a href="#">Terms of service</a>
         </div>
         <div id="seperator"></div>
         <div class="footer-row space-between">
-            <div class="footer-column">
-                <a>Cookie Preferences</a>
+            <div class="footer-column flex">
+                <div class=:">
+                    <a>Cookie Preferences</a>
+                </div>
+                <div class="" id="corporate">
+                    <span>&#169; Humber Polytechnic</span>
+                </div>
             </div>
-            <div class="footer-column" id="corporate">
-                <span>&#169; Humber Polytechnic</span>
-            </div>
-            <div class="footer-column">
+            <div class="footer-column" id="to-the-surface">
                 <a href="#header">TO THE SURFACE</a>
             </div>
         </div>
     </footer>
 </body>
+
 </html>
