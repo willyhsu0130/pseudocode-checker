@@ -3,10 +3,6 @@
     padding: 0px;
     margin: 0px;
 }
-
-.navbar img{
-    margin: 5px 5px;
-}
 .main-row {
     display: flex;
     justify-content: space-between;
