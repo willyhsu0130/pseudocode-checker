@@ -43,6 +43,10 @@
     width: 30%;
 }
 
+.divide3 p{
+    font-size: 23px;
+    text-align: left;
+}
 .divide3 button{
     width: 280px;
     height: 100px;
@@ -259,7 +263,4 @@ footer {
     margin-left: 7px;
     border-left: solid #6E6362;
     padding-left: 7px;
-}
-
-#to-the-surface{
 }
