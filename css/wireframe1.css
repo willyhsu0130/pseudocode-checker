@@ -21,7 +21,7 @@
     background-color: #D7D2B3;
     padding: 50px 50px;
 }
-.first-container p{
+.first-container > p{
     margin-bottom: 60px;
     font-size: 25px;
     line-height: 40px;
@@ -45,16 +45,22 @@
 
 .divide3 p{
     font-size: 23px;
-    text-align: left;
+    text-align: center;
+    line-height: 40px;
 }
 .divide3 button{
-    width: 280px;
-    height: 100px;
+    background-color: #F5F5F7;
+    width: 200px;
+    height: 80px;
     font-size: 30px;
     font-family: avenir, 'Times New Roman', Times, serif;
     font-weight: 600;
-    border-radius: 20px;
     color: #6E6362;
+    border: solid #BEAF9C;
+}
+
+.divide3 button:hover{
+    background-color:#B4A186;
 }
 
 .main-column h3 {
@@ -75,7 +81,6 @@
 .divide2 p{
     text-align: left;
     font-size: 23px;
-    
 }
 
 .divide2 ol{
