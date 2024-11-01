@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/wireframe2.css">
 </head>
 <body>
     <header id="header">
@@ -13,7 +14,7 @@
     </header>
     <nav>
         <div class="navbar">
-            <img src="./images/rabbit_logo.png" alt="logo of company" width="30" height="auto">
+            <img src="images/rabbit_logo.png" alt="logo of company" width="30" height="auto">
             <div class="dropdown" id="about-us">
                 <button class="dropbtn">ABOUT US</button>
                 <div class="dropdown-content">
@@ -25,5 +26,92 @@
             <button>LOGIN</button>
         </div> 
     </nav>
+    <main>
+        <div class="first-container">
+            <h2>What is pseudocode?</h2>
+            <p>In computer science, pseudocode is a description of the steps in an algorithm using a mix of conventions
+                of programming languages (like assignment operator, conditional operator, loop) with informal, usually
+                self-explanatory, notation of actions and conditions. Although pseudocode shares features with
+                regular programming languages, it is intended for human reading rather than machine control. Pseudocode
+                typically omits details that are essential for machine implementation of the algorithm, meaning that
+                pseudocode can only be verified by hand. The programming language is augmented with natural language
+                description details, where convenient, or with compact mathematical notation. The purpose of using
+                pseudocode is that it is easier for people to understand than conventional programming language code,
+                and that it is an efficient and environment-independent description of the key principles of an
+                algorithm. It is commonly used in textbooks and scientific publications to document algorithms and in
+                planning of software and other algorithms.</p>
+            <h2>What are the different ways to use the checker</h2>
+            <div class="main-row">
+                <div class="main-column divide3">
+                    <h3>Upload a file</h3>
+                    <p>Upload your pseudocde file on our website. We support .docs and .txt</p>
+                    <button>Click Here</button>
+                </div>
+                <div class="main-column divide3">
+                    <h3>Direct Input</h3>
+                    <p>Key in your pseducode and we can check it right away!</p>
+                </div>
+                <div class="main-column divide3">
+                    <h3>URI</h3>
+                </div>
+            </div>
+        </div>
+        <div class="second-container">
+            <h2>How do I write correct pseudocode?</h2>
+            <div class="main-row">
+                <div class="main-column divide2">
+                    <h3>The main constructs of pseudocode</h3>
+                    <p>The main constructs of pseudocode are essential for representing six fundamental programming
+                        concepts, always written in uppercase: SEQUENCE, CASE, WHILE, REPEAT-UNTIL, FOR, and
+                        IF-THEN-ELSE.
+                        These constructs, also called keywords, describe the control flow of an algorithm. </p>
+
+                    <ol>
+                        <li><b>SEQUENCE</b> represents linear tasks that are performed one after the other in order.
+                        </li>
+                        <li><b>WHILE</b> is a loop with acondition checked at the beginning.</li>
+                        <li><b>REPEAT-UNTIL</b> is a loop with a condition evaluated at the end. </li>
+                        <li><b>FOR</b> is another way of looping with a set number of iterations.</li>
+                        <li><b>IF-THEN-ELSE</b> is a conditional statement that changes the flow of the algorithm based
+                            on a
+                            specified condition.</li>
+                        <li><b>CASE</b> is a more generalized form of IF-THEN-ELSE, often used for multiple conditional
+                            branches.</li>
+                    </ol>
+                    <p>Together, these constructs allow for clear and logical representation of algorithms in
+                        pseudocode.</p>
+                </div>
+                <div class="main-column divide2">
+                    <h3>Correct Indentation</h3>
+                    <p>Indentation is very important in terms of pseudocode as it influences the logic of your code!</p>
+                    <ol>
+                        <li>Indent code block within control structures</li>
+                    </ol>
+                    <span>Read more about pseudocode rules and formatting</span><a>here!</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-row flex-start footer-nav">
+            <a href="#">Secuirty</a>
+            <a href="#">Legal</a>
+            <a href="#">Terms of service</a>
+        </div>
+        <div id="seperator"></div>
+        <div class="footer-row space-between">
+            <div class="footer-column flex">
+                <div>
+                    <a>Cookie Preferences</a>
+                </div>
+                <div class="" id="corporate">
+                    <span>&#169; Humber Polytechnic</span>
+                </div>
+            </div>
+            <div class="footer-column" id="to-the-surface">
+                <a href="#header">TO THE SURFACE</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
