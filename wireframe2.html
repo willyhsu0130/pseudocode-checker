@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/wireframe2.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
+
 <body>
     <header id="header">
-        <h1>Pseudocode<br>Checker</h1>
+        <h1>Pseudocode Checker</h1>
         <p>Insert your pseudocode to check if it's right!</p>
         <button><a>Begin Checking</a></button>
     </header>
-    <nav>
-        <div class="navbar">
+
+    <nav class="flex">
+        <div class="navbar space-between">
             <img src="images/rabbit_logo.png" alt="logo of company" width="30" height="auto">
             <div class="dropdown" id="about-us">
                 <button class="dropbtn">ABOUT US</button>
@@ -26,8 +28,9 @@
             <button>LOGIN</button>
         </div> 
     </nav>
+
     <main>
-        <div class="first-container">
+        <section class="intro">
             <h2>What is pseudocode?</h2>
             <p>In computer science, pseudocode is a description of the steps in an algorithm using a mix of conventions
                 of programming languages (like assignment operator, conditional operator, loop) with informal, usually
@@ -39,33 +42,37 @@
                 pseudocode is that it is easier for people to understand than conventional programming language code,
                 and that it is an efficient and environment-independent description of the key principles of an
                 algorithm. It is commonly used in textbooks and scientific publications to document algorithms and in
-                planning of software and other algorithms.</p>
-            <h2>What are the different ways to use the checker</h2>
-            <div class="main-row">
-                <div class="main-column divide3">
+                planning of software and other algorithms. </p>
+        </section>
+
+        <section class="content-row">
+            <h2>What are the different ways to use the checker?</h2>
+            <div class="content-columns">
+                <div class="content-box">
                     <h3>Upload a file</h3>
-                    <p>Upload your pseudocde file on our website. We support .docs and .txt</p>
+                    <p>Upload your pseudocode file on our website. We support .docs and .txt</p>
                     <button>Click Here</button>
                 </div>
-                <div class="main-column divide3">
+                <div class="content-box">
                     <h3>Direct Input</h3>
-                    <p>Key in your pseducode and we can check it right away!</p>
+                    <p>Key in your pseudocode and we can check it right away!</p>
                 </div>
-                <div class="main-column divide3">
+                <div class="content-box">
                     <h3>URI</h3>
                 </div>
             </div>
-        </div>
-        <div class="second-container">
+        </section>
+
+        <section class="content-row">
             <h2>How do I write correct pseudocode?</h2>
-            <div class="main-row">
-                <div class="main-column divide2">
+            <div class="content-columns">
+                <div class="content-box">
                     <h3>The main constructs of pseudocode</h3>
                     <p>The main constructs of pseudocode are essential for representing six fundamental programming
                         concepts, always written in uppercase: SEQUENCE, CASE, WHILE, REPEAT-UNTIL, FOR, and
                         IF-THEN-ELSE.
-                        These constructs, also called keywords, describe the control flow of an algorithm. </p>
-
+                        These constructs, also called keywords, describe the control flow of an algorithm.
+                    </p>
                     <ol>
                         <li><b>SEQUENCE</b> represents linear tasks that are performed one after the other in order.
                         </li>
@@ -79,9 +86,10 @@
                             branches.</li>
                     </ol>
                     <p>Together, these constructs allow for clear and logical representation of algorithms in
-                        pseudocode.</p>
+                        pseudocode.
+                    </p>
                 </div>
-                <div class="main-column divide2">
+                <div class="content-box">
                     <h3>Correct Indentation</h3>
                     <p>Indentation is very important in terms of pseudocode as it influences the logic of your code!</p>
                     <ol>
@@ -90,27 +98,20 @@
                     <span>Read more about pseudocode rules and formatting</span><a>here!</a>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
+
     <footer>
-        <div class="footer-row flex-start footer-nav">
-            <a href="#">Secuirty</a>
+        <div class="footer-row">
+            <a href="#">Security</a>
             <a href="#">Legal</a>
-            <a href="#">Terms of service</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Preferences</a>
         </div>
-        <div id="seperator"></div>
-        <div class="footer-row space-between">
-            <div class="footer-column flex">
-                <div>
-                    <a>Cookie Preferences</a>
-                </div>
-                <div class="" id="corporate">
-                    <span>&#169; Humber Polytechnic</span>
-                </div>
-            </div>
-            <div class="footer-column" id="to-the-surface">
-                <a href="#header">TO THE SURFACE</a>
-            </div>
+        <div id="separator"></div>
+        <div class="footer-bottom">
+            <span>&#169; Humber Polytechnic</span>
+            <a href="#header">TO THE SURFACE</a>
         </div>
     </footer>
 </body>
