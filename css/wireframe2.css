@@ -14,8 +14,7 @@ nav {
     width: 200px;
     background-color: #333;
     color: white;
-    height: 205vh;
-    margin-right: 100px; 
+    height: 200vh;
 }
 
 .flex{
@@ -36,7 +35,6 @@ nav {
 .navbar img {
     margin-bottom: 50px;
 }
-
 
 .dropdown {
     position: relative;
@@ -109,11 +107,11 @@ body {
     margin: 0;
 }
 
+
 header h1 {
     margin: 0;
-    margin-bottom: 30px;
     font-size: 70px;
-    font-weight: 900;
+    font-weight: 900px;
 }
 
 header p {
@@ -203,15 +201,14 @@ footer {
     padding: 30px;
 }
 
-main{
-    background-color: #F5F5F7;
-    padding: 50px 0px 80px;
-}
-
 .intro{
     padding: 50px;
     text-align: center;
-    margin: 50px;
+    margin: 0px 50px 80px;
+}
+
+.intro-content{
+    margin-left:220px;
 }
 
 .content-columns2{
@@ -219,6 +216,7 @@ main{
     gap: 100px;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0%;
 }
 
 .content-box2{
