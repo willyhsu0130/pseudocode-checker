@@ -14,7 +14,7 @@ nav {
     width: 200px;
     background-color: #333;
     color: white;
-    height: 200vh;
+    height: 205vh;
 }
 
 .flex{
@@ -204,10 +204,7 @@ footer {
 .intro{
     padding: 50px;
     text-align: center;
-    margin: 0px 50px 80px;
-}
-
-.intro-content{
+    margin:70px 0px 120px;
     margin-left:220px;
 }
 
@@ -229,5 +226,5 @@ footer {
 
 .content-row2 > h2{
     text-align: center;
-    margin: 100px;
+    margin: 70px;
 }
