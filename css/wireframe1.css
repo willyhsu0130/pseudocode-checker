@@ -37,10 +37,11 @@
 
 .divide3 {
     background-color: white;
-    height: 300px;
+    height: fit-content;
     color: #BEAF9C;
     text-align: center;
     width: 30%;
+    padding-bottom: 45px; 
 }
 
 .divide3 p{
