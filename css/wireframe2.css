@@ -11,11 +11,15 @@ header {
 
 nav {
     float: left;
-    width: 200px;
+    width: 20%;
     background-color: #333;
     color: white;
-    height: 205vh;
 }
+
+main{
+    width:79%;
+}
+
 
 .flex{
     display: flex;
@@ -173,7 +177,6 @@ footer {
 .section2{
     background-color: #ECDFCC;
     padding: 80px 100px;
-    margin-left: 200px;
 }
 
 .content-columns{
@@ -202,7 +205,6 @@ footer {
     padding: 50px;
     text-align: center;
     margin:70px 0px 120px;
-    margin-left:220px;
 }
 
 .content-columns2{
@@ -220,6 +222,11 @@ footer {
     height: 500px;
     border-radius: 8%;
 }
+
+.content-row2{
+    padding: 40px 20px ;
+}
+
 
 .content-row2 > h2{
     text-align: center;
