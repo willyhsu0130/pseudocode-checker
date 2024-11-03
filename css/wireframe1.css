@@ -218,7 +218,7 @@ nav button:hover{
 }
 
 header {
-    background-image: url('/images/background-white.jpg');
+    background-image: url('/images/background-white.jpg'); /* https://www.vecteezy.com/vector-art/7987436-wave-curvy-texture-white-elegant-luxury-background-concept */
     margin: 0;
     padding: 150px 50px 100px;
     color: #6E6362;
