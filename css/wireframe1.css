@@ -199,6 +199,9 @@ nav {
     display: flex;
 }
 
+nav img{
+    margin: 5px 0;
+}
 nav button {
     height: 50px;
     background-color: transparent;
