@@ -87,6 +87,22 @@
 .divide2 ol{
     font-size: 23px;
 }
+.divide2 span{
+    font-size: 23px;
+}
+.divide2 a{
+    font-size: 23px;
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-weight: 500; 
+}
+.divide2 a:hover{
+    text-decoration: underline;
+}
+
+.divide2 a
 .dropbtn {
     background-color: transparent;
     color: rgb(150, 126, 118);
