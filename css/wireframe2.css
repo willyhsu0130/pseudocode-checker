@@ -36,10 +36,6 @@ main{
     padding: 35px;
 }
 
-.navbar img {
-    margin-bottom: 50px;
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -85,13 +81,6 @@ main{
     background-color: white;
 }
 
-footer {
-    clear: both;
-    padding: 20px;
-    background-color: #f2f2f2;
-    text-align: center;
-}
-
 button {
     border-radius: 20px; 
     padding: 10px 20px;
@@ -110,7 +99,6 @@ body {
     padding: 0;
     margin: 0;
 }
-
 
 header h1 {
     margin: 0;
@@ -133,6 +121,9 @@ header button{
 }
 
 footer {
+    clear: both;
+    padding: 20px;
+    text-align: center;
     background-color: #d7ccba;
     color: #6E6362;
     padding: 0px 50px;
