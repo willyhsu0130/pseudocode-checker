@@ -1,7 +1,7 @@
 .navbar {
-    display: flex;
     padding: 0px;
     margin: 0px;
+    width: 100%;
 }
 .main-row {
     display: flex;
@@ -276,7 +276,6 @@ footer {
 #divide2 {
     height: 300px;
 }
-
 
 #seperator{
     border: solid #6E6362;
