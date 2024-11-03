@@ -188,8 +188,7 @@ footer {
 
 .content-box{
     background-color: white;
-    width: 600px;
-    height: 400px;
+    width: 20%;
     text-align: center;
     border-radius: 4%;
     padding: 30px;
@@ -211,10 +210,11 @@ footer {
 
 .content-box2{
     background-color: #e4e4e4;
-    padding: 30px;
+    border-radius: 5%;
+    line-height: 25px;
+    padding: 25px;
     width: 600px;
     height: 500px;
-    border-radius: 4%;
 }
 
 .content-row2{
