@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "name": "webdesignproject1",
+  "version": "1.0.0",
+  "description": "All contents for Humber Web Design Project 1",
+  "main": "app.js",
+  "scripts": {
+    "devStart": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
