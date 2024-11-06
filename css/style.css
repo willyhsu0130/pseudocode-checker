@@ -314,7 +314,8 @@ footer {
     color: white;
     border: none;
     cursor: pointer;
-    font-family: Avenir, Arial, Helvetica, sans-serif
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    font-weight: 800;
 }
 
 .wireframe2 button:hover {
@@ -398,4 +399,12 @@ footer {
     text-align: center;
     margin-top: 20px;
     font-size: 40px;
+}
+
+.wireframe2 #about-us{
+    margin-top: 15px;
+}
+
+.wireframe2 #login{
+    margin-top: 15px;
 }
