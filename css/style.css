@@ -43,7 +43,7 @@
 .wireframe1 .divide3 {
     background-color: white;
     height: fit-content;
-    color: #BEAF9C;
+    color: black;
     text-align: center;
     width: 30%;
     padding-bottom: 45px;
@@ -369,8 +369,7 @@ footer {
 }
 
 .wireframe2 .content-columns2 {
-    display: flex;
-    margin-bottom: 0%;
+    padding: 2%;
 }
 
 .wireframe2 .content-box2 {
@@ -382,7 +381,6 @@ footer {
 }
 
 .wireframe2 .content-row2 {
-    padding: 20px 2%;
     margin-bottom: 40px;
 }
 
