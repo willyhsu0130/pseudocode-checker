@@ -380,6 +380,16 @@ footer {
     width: 45%;
 }
 
+.content-box2 a{
+    color: black;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.content-box2 a:hover{
+    text-decoration: underline;
+}
+
 .wireframe2 .content-row2 {
     margin-bottom: 40px;
 }
