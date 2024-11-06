@@ -1,3 +1,11 @@
+:root {
+    --nav-background-color: #333;
+    --nav-color: white;
+    --footer-background-color: #D0D2B7;
+    --footer-color: #6E6362;
+    --footer-color: #D0D2B7;
+}
+
 .wireframe1 .navbar {
     padding: 0px;
     margin: 0px;
@@ -45,12 +53,12 @@
     text-align: center;
     line-height: 40px;
 }
-.wireframe1 .divide3 button {
+.divide3 button {
     background-color: #F5F5F7;
     width: 200px;
     height: 80px;
     font-size: 30px;
-    font-family: avenir, 'Times New Roman', Times, serif;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
     font-weight: 600;
     color: #6E6362;
     border: solid #BEAF9C;
@@ -112,40 +120,36 @@
     width: 160px;
     font-size: 16px;
 }
-.wireframe1 .dropdown-content a {
+.dropdown-content a {
     color: rgb(150, 126, 118);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
-.wireframe1 .dropdown-content a:hover {
+.dropdown-content a:hover {
     background-color: #f1f1f1;
 }
-.wireframe1 .dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content {
     display: block;
 }
-.wireframe1 .footer-row {
+.footer-row {
     display: flex;
     align-items: center;
     padding: 30px 0px;
 }
-.wireframe1 .footer-row a {
+.footer-row a {
     color: #6E6362;
     text-decoration: none;
 }
-.wireframe1 .footer-row a:visited {
+.footer-row a:visited {
     text-decoration: none;
     color: #6E6362;
 }
-.wireframe1 .footer-row a:hover {
+.footer-row a:hover {
     text-decoration: underline;
 }
-.wireframe1 .footer-column {
+.footer-column {
     align-items: center;
-}
-.wireframe1 .footer-nav a {
-    font-weight: 600;
-    margin-right: 30px;
 }
 .flex {
     display: flex;
@@ -169,8 +173,8 @@ body {
 .wireframe1 nav {
     margin: 0;
     padding: 10px 30px 10px 30px;
-    background-color: #D0D2B7;
-    color: #6E6362;
+    background-color: var(--nav-background-color);
+    color: var(--nav-color);
     position: fixed;
     right: 0px;
     left: 0px;
@@ -183,16 +187,16 @@ body {
     height: 50px;
     background-color: transparent;
     border: none;
-    font-family: Avenir, Palatino;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
     font-size: 16px;
-    color: rgb(150, 126, 118);
+    color: var(--nav-color);
     padding: 2px 2px;
     border-radius: 5px;
     font-weight: 800;
     width: 125px;
 }
 .wireframe1 nav button:hover {
-    background-color: white;
+    background-color: #B4A186;
 }
 .wireframe1 header {
     background-image: url('/images/background-white.jpg');
@@ -213,7 +217,7 @@ body {
     width: 280px;
     height: 100px;
     font-size: 30px;
-    font-family: avenir;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
     font-weight: 600;
     border-radius: 20px;
     color: #6E6362;
@@ -234,8 +238,8 @@ body {
     font-size: 45px;
     color: #6E6362;
 }
-.wireframe1 footer {
-    background-color: #D0D2B7;
+footer {
+    background-color: var(--footer-background-color);
     color: #6E6362;
     padding: 0px 50px;
 }
@@ -245,12 +249,145 @@ body {
 .wireframe1 #divide2 {
     height: 300px;
 }
-.wireframe1 #seperator {
+
+#seperator {
     border: solid #6E6362;
 }
-.wireframe1 #corporate {
+#corporate {
     margin-left: 7px;
     border-left: solid #6E6362;
     padding-left: 7px;
 }
 
+.wireframe2 header {
+    background-color: #f2f2f2;
+    background-image: url(../images/Background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 100px 50px 150px;
+    align-items: center;
+}
+.wireframe2 header h1{
+    font-size: 70px;
+    margin: 0;
+    font-weight: 900;
+}
+
+.wireframe2 header p{
+    font-size: 25px;
+}
+.wireframe2 nav {
+    width: 13%;
+    background-color: #333;
+    color: white;
+}
+
+.wireframe2 main{
+    width: 87%;
+}
+#seperator {
+    border: solid #6E6362;
+}
+.wireframe2 .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px;
+}
+
+.wireframe2 .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+.wireframe2 button {
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: Avenir, Arial, Helvetica, sans-serif
+}
+
+.wireframe2 button:hover {
+    background-color: #555;
+}
+
+.footer-nav a {
+    font-weight: 600;
+    margin-right: 30px;
+}
+
+.wireframe2 .section2 {
+    background-color: #ECDFCC;
+    padding: 80px 3%;
+}
+
+.wireframe2 .content-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wireframe2 .section2 h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 0px;
+}
+
+.wireframe2 .content-box {
+    background-color: white;
+    width: 27%;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.wireframe2 .intro {
+    padding: 30px 40px;
+    text-align: left;
+    margin: 0;
+}
+.wireframe2 .intro h2{
+    font-size: 40px;
+}
+.wireframe2 .intro p{
+    line-height: 40px;
+    font-size: 20px;
+}
+
+.wireframe2 .section2 h2{
+    font-size: 40px;
+}
+
+.wireframe2 .content-columns2 {
+    display: flex;
+    margin-bottom: 0%;
+}
+
+.wireframe2 .content-box2 {
+    background-color: #e4e4e4;
+    border-radius: 10px;
+    line-height: 25px;
+    padding: 25px;
+    width: 45%;
+}
+
+.wireframe2 .content-row2 {
+    padding: 20px 2%;
+    margin-bottom: 40px;
+}
+
+.wireframe2 .content-row2 > h2 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 40px;
+}
