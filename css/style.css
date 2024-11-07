@@ -322,6 +322,9 @@ footer {
     background-color: #555;
 }
 
+.wireframe2 nav img{
+    margin-bottom: 40px;
+}
 .wireframe2 header button {
     border-radius: 20px;
     padding: 10px 20px;
@@ -420,9 +423,9 @@ footer {
 }
 
 .wireframe2 #about-us{
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .wireframe2 #login{
-    margin-top: 15px;
+    margin-top: 200px;
 }
