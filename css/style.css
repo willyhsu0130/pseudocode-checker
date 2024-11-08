@@ -397,7 +397,7 @@ footer {
 }
 
 .wireframe2 .content-columns2 {
-    padding: 2%;
+    padding: 2.5%;
 }
 
 .wireframe2 .content-box2 {
@@ -429,9 +429,9 @@ footer {
 }
 
 .wireframe2 #about-us{
-    margin-top: 10px;
+    margin-top: 3px;
 }
 
 .wireframe2 #login{
-    margin-top: 200px;
+    margin-top: 40px;
 }
