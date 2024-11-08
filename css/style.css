@@ -199,16 +199,17 @@ body {
     background-color: #B4A186;
 }
 .wireframe1 header {
-    background-image: url(/images/header_img.avif);
+    background-image: url(/images/header_img.png); /*https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     margin: 0;
-    padding: 150px 50px 100px;
-    color: #6E6362;
+    padding: 150px 50px 150px;
+    color: #201e1e;
 }
 .wireframe1 header h1 {
     margin: 0;
+    margin-top: 100px;
     margin-bottom: 30px;
     font-size: 70px;
     font-weight: 900;
@@ -224,7 +225,7 @@ body {
     font-weight: 600;
     border-radius: 20px;
     color: #6E6362;
-    margin-top: 30px;
+    margin-top: 75px;
 }
 .wireframe1 header button:hover {
     background-color: #B4A186;
@@ -269,7 +270,7 @@ footer {
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
-    padding: 100px 50px 150px;
+    padding: 125px 50px 175px;
     align-items: center;
 }
 .wireframe2 header h1{
@@ -339,6 +340,7 @@ footer {
     font-weight: 800;
     height: 70px;
     font-size: 20px;
+    margin-top: 75px;
 }
 
 .wireframe2 header button:hover {
