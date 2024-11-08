@@ -199,19 +199,20 @@ body {
     background-color: #B4A186;
 }
 .wireframe1 header {
-    background-image: url(/images/header_img.png); /*https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D*/
+    background-image: url(../images/header_img.png); /*https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-color: #e4e4e4;
+    background-blend-mode: multiply;
     margin: 0;
-    padding: 150px 50px 150px;
+    padding: 200px 50px 200px;
     color: #201e1e;
 }
 .wireframe1 header h1 {
     margin: 0;
-    margin-top: 100px;
     margin-bottom: 30px;
-    font-size: 70px;
+    font-size: 75px;
     font-weight: 900;
 }
 .wireframe1 header p {
@@ -225,7 +226,7 @@ body {
     font-weight: 600;
     border-radius: 20px;
     color: #6E6362;
-    margin-top: 75px;
+    margin-top: 100px;
 }
 .wireframe1 header button:hover {
     background-color: #B4A186;
