@@ -199,7 +199,10 @@ body {
     background-color: #B4A186;
 }
 .wireframe1 header {
-    background-image: url('/images/background-white.jpg');
+    background-image: url(/images/header_img.avif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     margin: 0;
     padding: 150px 50px 100px;
     color: #6E6362;
@@ -261,7 +264,7 @@ footer {
 
 .wireframe2 header {
     background-color: #f2f2f2;
-    background-image: url(../images/Background.jpg);
+    background-image: url(../images/Background.jpg); /*https://images.pexels.com/photos/8147480/pexels-photo-8147480.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
