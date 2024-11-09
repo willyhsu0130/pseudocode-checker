@@ -110,6 +110,14 @@
     width: 160px;
     font-size: 16px;
 }
+
+.align-left{
+    text-align: left;
+}
+
+.align-right{
+    text-align: right;
+}
 .dropdown-content a {
     color: rgb(150, 126, 118);
     padding: 12px 16px;
@@ -125,7 +133,6 @@
 .footer-row {
     display: flex;
     flex-direction: row;
-    align-items: center;
     padding: 30px 0px;
     justify-content: space-between;
     text-align: center;
@@ -134,9 +141,16 @@
 .footer-column{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
 }
+
+{
+    width: 100%;
+}
+.footer-nav-width{
+    width: 20%; 
+}
+
+
 
 .footer-row a {
     color: #6E6362;
@@ -246,6 +260,10 @@ footer {
     color: #6E6362;
     padding: 0px 50px;
 }
+
+footer span{
+    text-align: center;
+}
 .wireframe1 #about-us {
     margin-left: 100px;
 }
@@ -258,9 +276,7 @@ footer {
 }
 
 #corporate {
-    margin-left: 7px;
-    border-left: solid #6E6362;
-    padding-left: 7px;
+    text-align: center;
 }
 
 .wireframe2 header {
@@ -348,10 +364,7 @@ footer {
 }
 
 
-/* .footer-nav a {
-    font-weight: 600;
-    margin-right: 30px;
-} */
+
 
 .wireframe2 .section2 {
     background-color: #ECDFCC;
