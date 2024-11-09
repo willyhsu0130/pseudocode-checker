@@ -135,21 +135,13 @@
     justify-content: space-between;
     text-align: center;
 }
-
 .footer-column{
     display: flex;
     flex-direction: column;
 }
-
-{
-    width: 100%;
-}
 .footer-nav-width{
     width: 20%; 
 }
-
-
-
 .footer-row a {
     color: #6E6362;
     text-decoration: none;
@@ -357,9 +349,6 @@ footer span{
 .wireframe2 header button:hover {
     background-color: #555;
 }
-
-
-
 
 .wireframe2 .section2 {
     background-color: #ECDFCC;
