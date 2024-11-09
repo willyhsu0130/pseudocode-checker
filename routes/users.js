@@ -14,6 +14,7 @@ router.post("/", (req, res) =>{
     const isValid = true;
     if (isValid){
         users.push
+        res.redirect(`/`)
     }
     req.body.firstName;
     console.log(req.body.firstName)
