@@ -26,7 +26,6 @@
 }
 .wireframe1 .first-container {
     background-color: #ECDFCC;
-    /* background-color: #D7D2B3; */
     padding: 50px 50px;
 }
 .wireframe1 .first-container > p {
@@ -40,7 +39,6 @@
 }
 .wireframe1 .second-container h2 {
     color: #333;
-    /* color: #6E6362; */
 }
 .wireframe1 .divide3 {
     background-color: white;
@@ -221,17 +219,15 @@ body {
     font-weight: 600;
     border-radius: 20px;
     color: #333;
-    /* color: #6E6362; */
     margin-top: 100px;
 }
 .wireframe1 header button:hover {
     background-color: #B4A186;
 }
 .wireframe1 main {
-    color: #333;
-    /* color: rgb(150, 126, 118); */
-    padding: 0;
     margin: 0;
+    padding: 0;
+    color: #333
 }
 .wireframe1 main h2 {
     margin: 0;
@@ -239,7 +235,6 @@ body {
     padding-bottom: 0;
     font-size: 45px;
     color: #333;
-    /* color: #6E6362; */
 }
 footer {
     background-color: var(--footer-background-color);
@@ -347,11 +342,6 @@ footer {
     background-color: #555;
 }
 
-
-/* .footer-nav a {
-    font-weight: 600;
-    margin-right: 30px;
-} */
 
 .wireframe2 .section2 {
     background-color: #ECDFCC;
