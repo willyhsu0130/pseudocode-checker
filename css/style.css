@@ -457,3 +457,21 @@ footer span{
 .checker #pseudocode_input_label{
     margin-bottom: 5px;
 }
+
+.checker table{
+    width: fit-content;
+}
+
+.checker table tr{
+    vertical-align: top;
+    padding: 5px;
+}
+
+.checker #errors td:first-child {
+    white-space: nowrap;
+}
+  
+.checker #errors td:nth-child(2) {
+    white-space: normal; /* Ensures text wraps */
+    word-wrap: break-word; /* Allows long words to break and wrap */
+}

@@ -1,13 +1,10 @@
 // Fix Module begin/end
 
 // Include modules needed
-import * as fs from 'fs'
 import { searchVariable, showErrors,  clearBeginEnd } from './helpers.js';
 
 
 // Intialize global variables. Code is for the pseudocode text. Mistkaes array store all the mistakes 
-var code = [];
-var mistakes = [];
 
 // Provided a method for me to insert a mistake into an array if there are more than one mistakes in each line.
 Array.prototype.append = function (index, text) {
@@ -26,9 +23,9 @@ function readCode(input) {
       const data = input;
 
       // Split the data into an array by newline characters
-      code = data.split("\n");
+      const code = data.split("\n");
 
-      resolve("Succesfully read code");;
+      resolve(code);;
     } catch (error) {
       reject("Error reading code");
     }
@@ -37,8 +34,9 @@ function readCode(input) {
 }
 
 // Performs all the logical parts of checking
-function checker() {
+function validate(code) {
   // Intialize the different objects that will be used later.
+  let mistakes = [];
   let module = {
     value: 0,
     begin: 0,
@@ -81,7 +79,7 @@ function checker() {
       if (line.toUpperCase().startsWith("MODULE")) {
         // Check if close previous module
         if (module.value == 1) {
-          mistakes.append(i, "Previous module not closed")
+          mistakes.append(i, "Previous module not closed. ")
         }
         module.value = 1;
         module.begin = 1;
@@ -162,15 +160,15 @@ function checker() {
     else if (line == "") {
       comment = 1;
     }
-    checkSpelling(i, module, forLoop, comment, statement, ifClause)
+    checkSpelling(code, mistakes, i, module, forLoop, comment, statement, ifClause)
     forLoop = clearBeginEnd(forLoop);
     module = clearBeginEnd(module);
     ifClause = clearBeginEnd(ifClause);
   }
-  showErrors(mistakes);
+  return mistakes;
 }
 
-function checkSpelling(lineNum, module, forLoop, comment, statement, ifClause) {
+function checkSpelling(code, mistakes, lineNum, module, forLoop, comment, statement, ifClause) {
   // If it's a comment, ignore the spell check to move out the function.
   if (comment == 1) {
     return;
@@ -217,19 +215,16 @@ function checkSpelling(lineNum, module, forLoop, comment, statement, ifClause) {
 }
 
 // Main function. Async is used here because reading code from file is async so this must be used.
-async function begin_checker(input) {
+export async function begin_checker(input) {
   try {
     // Load Code
-    const readCodeResult = await readCode(input);
-    console.log(readCodeResult);
-    checker();
+    const code = await readCode(input);
+    const mistakes = validate(code);
+    return mistakes;
   }
     // If code can't be read, an error will show.
   catch (error) {
-    console.error(error)
+    return console.error(error)
   }
 }
 
-begin_checker();
-
-// The program can be tested by running test.txt
