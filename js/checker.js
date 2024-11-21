@@ -1,7 +1,7 @@
 // Fix Module begin/end
 
 // Include modules needed
-import { searchVariable, showErrors,  clearBeginEnd } from './helpers.js';
+import { searchVariable, clearBeginEnd } from './helpers.js';
 
 
 // Intialize global variables. Code is for the pseudocode text. Mistkaes array store all the mistakes 
