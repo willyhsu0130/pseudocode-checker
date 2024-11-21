@@ -10,10 +10,10 @@
         <main>
             <div class="flex">
                 <div id="left" class="main-column">
-                    <form>
+                    <form id="checker" name="checker" method="post">
                         <label for="pseudocode_input" id="pseudocode_input_label">Validate via direct input</label>
                         <input type="button" id="check" value="Check">
-                        <textarea id="pseudocode_input" name="pseudocode_input" placeholder="Enter your pseudocode here"></textarea>
+                        <textarea id="pseudocode_input" name="pseudocode_input" rows="100" cols="50" placeholder="Enter your pseudocode here"></textarea>
                     </form>
                 </div>
                 <div id="right" class="main-column">
@@ -23,8 +23,6 @@
                 </div>
             </div>
         </main>
-    </body>
-    <scirpt src="/js/main.js">
-
-    </scirpt>
+        <script src="../js/main.js"></script>
+    </body>  
 </html>

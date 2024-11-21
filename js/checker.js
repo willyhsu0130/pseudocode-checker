@@ -19,14 +19,15 @@ Array.prototype.append = function (index, text) {
 };
 
 // Read the txt file into an array
-function readCode() {
+function readCode(input) {
   return new Promise((resolve, reject) => {
     try {
       // Read the file synchronously: test.txt is the sample file for checking. 
-      const data = fs.readFileSync("test.txt", "utf8");
+      const data = input;
 
       // Split the data into an array by newline characters
       code = data.split("\n");
+
       resolve("Succesfully read code");;
     } catch (error) {
       reject("Error reading code");
@@ -216,10 +217,10 @@ function checkSpelling(lineNum, module, forLoop, comment, statement, ifClause) {
 }
 
 // Main function. Async is used here because reading code from file is async so this must be used.
-async function main() {
+async function begin_checker(input) {
   try {
     // Load Code
-    const readCodeResult = await readCode();
+    const readCodeResult = await readCode(input);
     console.log(readCodeResult);
     checker();
   }
@@ -229,6 +230,6 @@ async function main() {
   }
 }
 
-main();
+begin_checker();
 
 // The program can be tested by running test.txt
