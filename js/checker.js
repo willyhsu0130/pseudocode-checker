@@ -1,10 +1,7 @@
 // Fix Module begin/end
 
 // Include modules needed
-import { searchVariable, clearBeginEnd } from './helpers.js';
-
-
-// Intialize global variables. Code is for the pseudocode text. Mistkaes array store all the mistakes 
+import { searchVariable, clearBeginEnd, identifyType } from './helpers.js';
 
 // Provided a method for me to insert a mistake into an array if there are more than one mistakes in each line.
 Array.prototype.append = function (index, text) {
@@ -64,6 +61,8 @@ function validate(code) {
   // Loop through a single line, identify what this is 
   for (let i = 0; i < code.length; i++) {
     let line = code[i];
+    let token = identifyType(line);
+
     // Trim the line and uppercase it so that the indentation doesn't matter.
     let pureLine = line.trim().toUpperCase();
     comment = 0;
@@ -207,8 +206,8 @@ function checkSpelling(code, mistakes, lineNum, module, forLoop, comment, statem
     }
   }
   // Check if Const is capitalized
-  if (statement.type == "Const"){
-    if(!code[lineNum].includes("Const")){
+  if (statement.type == "Const") {
+    if (!code[lineNum].includes("Const")) {
       mistakes.append(lineNum, "Const is not capitalized. ")
     }
   }
@@ -222,7 +221,7 @@ export async function begin_checker(input) {
     const mistakes = validate(code);
     return mistakes;
   }
-    // If code can't be read, an error will show.
+  // If code can't be read, an error will show.
   catch (error) {
     return console.error(error)
   }
