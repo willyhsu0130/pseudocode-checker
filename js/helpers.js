@@ -57,9 +57,23 @@ function ifToken(pureline, type) {
   }
   return false;
 }
+export function identifyPosition(position, token, line){
+  //Check if it's in a module
+  if(token == 'module'){
+    position.module = identifyModule(position, token, line)
+  } else if(token )
+}
+
+function identifyModule(position){
+
+}
 
 
-
+export function identifyMistakes(level, token, line){
+  if(token == 'comment'){
+    return "";
+  } else if(token == 'Declare')
+}
 function checkVariableName(line, type) {
   let token;
   // check declare name
