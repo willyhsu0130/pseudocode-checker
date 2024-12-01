@@ -16,10 +16,10 @@ function addError(error, message) {
   return `${error} ${message}`
 }
 
-function checkCodeVariableType(value){
-  if (/^-?\d+$/.test(input)) {
+function checkCodeVariableType(value) {
+  if (/^-?\d+$/.test(value)) {
     return "Integer";
-  } else if (/^-?\d+\.\d+$/.test(input)) {
+  } else if (/^-?\d+\.\d+$/.test(value)) {
     return "Float";
   } else {
     return "String";
@@ -27,14 +27,14 @@ function checkCodeVariableType(value){
 }
 
 function checkVariableValue(type, lineArray) {
-  upperType = type.toUpperCase();
+  let upperType = type.toUpperCase();
   // Check if a value is intiailized
   if (lineArray[3] == '=') {
     // Initialized so check for what type of value it is:
     let codeVariableType = checkCodeVariableType(lineArray[4]);
     // Check if the real type and the supposed type matches
     if (upperType != codeVariableType) {
-
+      return "Variable type doesn't match its value."
     }
     // Value is not intialized
   } else if (lineArray.length == 3) {
@@ -50,7 +50,7 @@ function checkCapitalization(lineArray) {
 // Only identify which type of token it is, disregarding position, name, value etc.
 export function identifyType(line) {
   //pureline is line without indentation and full out uppercase
-  pureline = line.trim().toUpperCase()
+  let pureline = line.trim().toUpperCase()
 
   //initialize return obj
   let token;

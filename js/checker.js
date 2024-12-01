@@ -1,7 +1,7 @@
 // Fix Module begin/end
 
 // Include modules needed
-import { searchVariable, clearBeginEnd, identifyType } from './helpers.js';
+import { identifyMistakes, clearBeginEnd, identifyType } from './helpers.js';
 
 // Provided a method for me to insert a mistake into an array if there are more than one mistakes in each line.
 Array.prototype.append = function (index, text) {
@@ -35,13 +35,7 @@ function validate(code) {
     let mistakes = [code.length];
     //intialize items in psedocode
     let codeObjects = {
-      variables: {
-        test: {
-          value: 3,
-          type: 'String',
-          in: 'main'
-        }
-      },
+      variables: [],
       ifStack: [],
       loopStack: []
     }
@@ -49,7 +43,7 @@ function validate(code) {
   // Loop through a single line, identify what this is 
   for (let i = 0; i < code.length; i++) {
     let line = code[i];
-    token = identifyType(line);
+    let token = identifyType(line);
     // verify if the token matches the line, where mistakes is an array
     mistakes[i] = identifyMistakes(codeObjects, token, line);
   }
@@ -70,4 +64,45 @@ export async function begin_checker(input) {
   }
 }
 
+// Testing section.
 
+const text = [
+  "// Main module",
+  "Module main()",
+  "\tCall calculateAverage()",
+  "\tCall calculateTip()",
+  "End Module",
+  "",
+  "// Module to calculate the average cost of drinks",
+  "Module calculateAverage()",
+  "\tDeclare Real drink1 = 0.0",
+  "\tDeclare Real drink2 = 0.0",
+  "\tDeclare Real drink3 = 0.0",
+  "\tDeclare Real average = 0.0",
+  "\tDisplay “Enter the value of the first drink in dollars:”",
+  "\tInput drink1",
+  "\tDisplay “Enter the value of the second drink in dollars:”",
+  "\tInput drink2",
+  "\tDisplay “Enter the value of the third drink in dollars:”",
+  "\tInput drink3",
+  "\tSet average = (drink1 + drink2 + drink3) / 3",
+  "\tDisplay “The average price of the drinks is $”, average",
+  "End Module",
+  "",
+  "// Module to calculate the total meal cost including tax and tip",
+  "Module calculateTip()",
+  "\tDeclare Real mealCost = 0.0",
+  "\tDeclare Real tipAmount = 0.0",
+  "\tDeclare Real totalCost = 0.0",
+  "\tConst Real taxRate = 0.13",
+  "\tDisplay “How much did the meal cost?”",
+  "\tInput mealCost",
+  "\tDisplay “How much did you tip?”",
+  "\tInput tipAmount",
+  "\tSet totalCost = mealCost * (1 + taxRate) + tipAmount",
+  "\tDisplay “Your total cost is $”, totalCost",
+  "End Module"
+];
+
+
+validate(text);
