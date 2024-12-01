@@ -54,8 +54,9 @@ function validate(code) {
 export async function begin_checker(input) {
   try {
     // Load Code
-    const code = await readCode(input);
-    const mistakes = validate(code);
+    // const code = await readCode(input);
+    const mistakes = validate(input);
+    printErrors(mistakes)
     return mistakes;
   }
   // If code can't be read, an error will show.
@@ -64,7 +65,14 @@ export async function begin_checker(input) {
   }
 }
 
-// Testing section.
+// Testing section:
+
+function printErrors(array){
+  for(let i = 0; i <= array.length; i++){
+    console.log("At line " + i + " " + array[i])
+  }
+}
+
 
 const text = [
   "// Main module",
@@ -75,7 +83,7 @@ const text = [
   "",
   "// Module to calculate the average cost of drinks",
   "Module calculateAverage()",
-  "\tDeclare Real drink1 = 0.0",
+  "\tDeclare Real drink1 = hi",
   "\tDeclare Real drink2 = 0.0",
   "\tDeclare Real drink3 = 0.0",
   "\tDeclare Real average = 0.0",
@@ -105,4 +113,4 @@ const text = [
 ];
 
 
-validate(text);
+begin_checker(text);

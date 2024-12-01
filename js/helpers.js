@@ -38,7 +38,7 @@ function checkVariableValue(type, lineArray) {
     }
     // Value is not intialized
   } else if (lineArray.length == 3) {
-    return '';
+    return undefined;
   } else {
     return 'Incomplete declaration'
   }
@@ -88,7 +88,7 @@ export function identifyType(line) {
 }
 
 function addVariable(variables, line) {
-  let errors = '';
+  let errors = undefined;
   let variableTypes = ['REAL', 'INT', 'STRING'];
   let lineArray = line.trim().split(/\s+/);
   if (lineArray.length < 2) {
@@ -113,7 +113,7 @@ function addVariable(variables, line) {
   errors = addError(errors, checkCapitalization(lineArray));
 
   // Add the variable to the codeObjects if no errors
-  if (errors == '') {
+  if (errors == undefined) {
     variables.variableName = {
       value: lineArray[3],
       type: variableType
