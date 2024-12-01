@@ -1,7 +1,3 @@
-export function searchVariable(array, name) {
-  return array.some(variable => variable.name === name)
-}
-
 export function clearBeginEnd(obj) {
   for (let key in obj) {
     if (key === 'begin' || key === 'end') {
@@ -10,7 +6,47 @@ export function clearBeginEnd(obj) {
   }
   return obj;
 }
+function ifToken(pureline, type) {
+  if (pureline.includes(type)) {
+    return true;
+  }
+  return false;
+}
+function addError(error, message) {
+  return `${error} ${message}`
+}
 
+function checkCodeVariableType(value){
+  if (/^-?\d+$/.test(input)) {
+    return "Integer";
+  } else if (/^-?\d+\.\d+$/.test(input)) {
+    return "Float";
+  } else {
+    return "String";
+  }
+}
+
+function checkVariableValue(type, lineArray) {
+  upperType = type.toUpperCase();
+  // Check if a value is intiailized
+  if (lineArray[3] == '=') {
+    // Initialized so check for what type of value it is:
+    let codeVariableType = checkCodeVariableType(lineArray[4]);
+    // Check if the real type and the supposed type matches
+    if (upperType != codeVariableType) {
+
+    }
+    // Value is not intialized
+  } else if (lineArray.length == 3) {
+    return '';
+  } else {
+    return 'Incomplete declaration'
+  }
+}
+
+function checkCapitalization(lineArray) {
+
+}
 // Only identify which type of token it is, disregarding position, name, value etc.
 export function identifyType(line) {
   //pureline is line without indentation and full out uppercase
@@ -35,45 +71,88 @@ export function identifyType(line) {
   else if (ifToken(pureline, 'SET ')) {
     token = 'set'
   }
-  else if (ifToken(pureline, 'IF ')){
+  else if (ifToken(pureline, 'IF ')) {
     token = 'if'
   }
-  else if (ifToken(pureline, 'WHILE ')){
+  else if (ifToken(pureline, 'WHILE ')) {
     token = 'if'
   }
-  else if (ifToken(pureline, 'FOR ')){
+  else if (ifToken(pureline, 'FOR ')) {
     token = 'for'
   }
-  else if (ifToken(pureline, 'DO ')){
+  else if (ifToken(pureline, 'DO ')) {
     token = 'doWhile'
   }
   else token = undefined;
   return token;
 }
 
-function ifToken(pureline, type) {
-  if (pureline.includes(type)) {
-    return true;
+function addVariable(variables, line) {
+  let errors = '';
+  let variableTypes = ['REAL', 'INT', 'STRING'];
+  let lineArray = line.trim().split(/\s+/);
+  if (lineArray.length < 2) {
+    errors = addError(errors, 'Incomplete declaration.');
   }
-  return false;
+  if (!variableTypes.includes(lineArray[1].toUpperCase())) {
+    errors = addError(errors, 'Variable type is not declared');
+  }
+
+  let variableName = lineArray[2];
+  let variableType = lineArray[1]
+
+  // Check if the variable type fits the value:
+  errors = addError(errors, checkVariableValue(variableType, lineArray));
+
+  // Check if the variable name already exists in codeObjects in the same module
+  if (variables.includes(variableName)) {
+    errors = addError(errors, 'Variable already declared previously')
+  }
+
+  // Once logic is checked, check for capitalization
+  errors = addError(errors, checkCapitalization(lineArray));
+
+  // Add the variable to the codeObjects if no errors
+  if (errors == '') {
+    variables.variableName = {
+      value: lineArray[3],
+      type: variableType
+    }
+  }
+  return errors;
 }
-export function identifyPosition(position, token, line){
-  //Check if it's in a module
-  if(token == 'module'){
-    position.module = identifyModule(position, token, line)
-  } else if(token )
-}
-
-function identifyModule(position){
-
-}
 
 
-export function identifyMistakes(level, token, line){
-  if(token == 'comment'){
+
+
+export function identifyMistakes(codeObjects, token, line) {
+  if (token == 'comment') {
     return "";
-  } else if(token == 'Declare')
+  } else if (token == 'declare') {
+    return addVariable(codeObjects.variables, line)
+  }
 }
+
+
+function identifyModule(position, line) {
+  //remove the 
+  let lineArray = line.trims.split(/\s+/);
+  //clone the module from position
+  let module = position.module;
+  // identify if it's the end or the beginning
+  if (lineArray[0].toUpperCase() == 'MODULE') {
+
+
+  } else if (lineArray[1].toUpperCase() == 'MODULE') {
+    module = {
+      level: position.module.level - 1,
+      name: position.module.level
+    }
+  }
+}
+
+
+
 function checkVariableName(line, type) {
   let token;
   // check declare name
@@ -85,7 +164,7 @@ function checkVariableName(line, type) {
       name: undefined,
       array: 0
     }
-    switch(variable[1]){
+    switch (variable[1]) {
       case 'Real': {
         token.variableType = 'real'
         token.name = variable[2];
@@ -101,7 +180,7 @@ function checkVariableName(line, type) {
         token.name = variable[2];
         break;
       }
-      default:{
+      default: {
         token.name = variable[1];
       }
     }

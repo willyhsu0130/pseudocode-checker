@@ -1,7 +1,4 @@
-import { searchVariable } from "./helpers.js";
-
-statements = {
-    variable: []
-};
+let test = parseInt('3.0')
 
 
+console.log(test)

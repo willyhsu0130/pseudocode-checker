@@ -32,33 +32,26 @@ function readCode(input) {
 
 // Performs all the logical parts of checking
 function validate(code) {
-    let mistakes = [code.length]
-    let position = {
-      module: {
-        level: 0,
-        name: undefined,
-        place: undefined
+    let mistakes = [code.length];
+    //intialize items in psedocode
+    let codeObjects = {
+      variables: {
+        test: {
+          value: 3,
+          type: 'String',
+          in: 'main'
+        }
       },
-      ifs: {
-        level: 0,
-        condition: undefined,
-        place: undefined
-      },
-      loop: {
-        // for, while, doWhile
-        type: undefined,
-        level: undefined,
-        condition: undefined,
-        place: undefined
-      }
+      ifStack: [],
+      loopStack: []
     }
+
   // Loop through a single line, identify what this is 
   for (let i = 0; i < code.length; i++) {
     let line = code[i];
     token = identifyType(line);
-    position = identifyPosition(position, token, line)
     // verify if the token matches the line, where mistakes is an array
-    mistakes[i] = identifyMistakes(level, token, line);
+    mistakes[i] = identifyMistakes(codeObjects, token, line);
   }
   return mistakes;
 }
@@ -76,4 +69,5 @@ export async function begin_checker(input) {
     return console.error(error)
   }
 }
+
 
