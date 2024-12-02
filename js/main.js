@@ -6,7 +6,12 @@ async function processEntry(){
     // Retrieve data from textbox
     const input = $("#pseudocode_input").value;
     try {
-        const mistakes = await checker.begin_checker(input);
+        // const mistakes = await checker.begin_checker(input);
+        const mistakes = [
+        "At line 8:  Variable type doesn't match its value.",
+        "At line 10:  Variable already declared previously.",
+        "At line 18:  Variable has not been declared"
+        ]
         // Display mistakes
         displayMistakes(mistakes)
         console.log(mistakes);
