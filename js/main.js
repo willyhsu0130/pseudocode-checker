@@ -7,12 +7,13 @@ async function processEntry(){
     const input = $("#pseudocode_input").value;
     try {
         // const mistakes = await checker.begin_checker(input);
+        // Test array 
         const mistakes = [
-        "",
-        "",
+        undefined,
+        undefined,
         "Variable type doesn't match its value.",
-        "",
-        "",
+        undefined,
+        undefined,
         "Variable already declared previously.",
         "Variable has not been declared."
         ]
