@@ -430,3 +430,48 @@ footer span{
 .wireframe2 #login{
     margin-top: 40px;
 }
+
+.checker main{
+    background-color: #B4A186;
+}
+.checker .main-column{
+    padding: 20px;
+}
+.checker #left{
+    width: 60%;
+    margin: solid black;
+}
+
+.checker #right{
+    width: 40%;
+    margin: solid black;
+
+}
+
+.checker #pseudocode_input{
+    width: 100%;
+    height: 90dvh;
+    padding: 10px;
+}
+
+.checker #pseudocode_input_label{
+    margin-bottom: 5px;
+}
+
+.checker table{
+    width: fit-content;
+}
+
+.checker table tr{
+    vertical-align: top;
+    padding: 5px;
+}
+
+.checker #errors td:first-child {
+    white-space: nowrap;
+}
+  
+.checker #errors td:nth-child(2) {
+    white-space: normal; /* Ensures text wraps */
+    word-wrap: break-word; /* Allows long words to break and wrap */
+}
