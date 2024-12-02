@@ -117,8 +117,8 @@ function addVariable(variables, line) {
 
   // Add the variable to the codeObjects if no errors
   if (errors == undefined) {
-    variables.variableName = {
-      value: lineArray[3],
+    variables[variableName] = {
+      value: lineArray[4],
       type: variableType
     }
   }

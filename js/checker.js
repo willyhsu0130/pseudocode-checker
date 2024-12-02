@@ -47,6 +47,7 @@ function validate(code) {
     // verify if the token matches the line, where mistakes is an array
     mistakes[i] = identifyMistakes(codeObjects, token, line);
   }
+  console.log(codeObjects);
   return mistakes;
 }
 
