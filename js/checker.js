@@ -37,7 +37,8 @@ function validate(code) {
     let codeObjects = {
       variables: [],
       ifStack: [],
-      loopStack: []
+      loopStack: [],
+      moduleStack: []
     }
 
   // Loop through a single line, identify what this is 
@@ -67,11 +68,10 @@ export async function begin_checker(input) {
 }
 
 // Testing section:
-
 function printErrors(array){
   for(let i = 0; i <= array.length; i++){
     if (array[i] != undefined){
-      console.log("At line " + i + " " + array[i])
+      console.log("At line " + i + ": " + array[i])
     }
   }
 }

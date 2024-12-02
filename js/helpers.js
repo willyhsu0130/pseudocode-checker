@@ -93,7 +93,7 @@ function checkVariableValue(type, lineArray) {
   }
 }
 
-function addVariable(variables, line) {
+function addVariable(variables, line, constant) {
   let errors = undefined;
   let variableTypes = ['REAL', 'INT', 'STRING'];
   let lineArray = line.trim().split(/\s+/);
@@ -112,7 +112,7 @@ function addVariable(variables, line) {
 
   // Check if the variable name already exists in codeObjects in the same module
   if (variableName in variables) {
-    errors = addError(errors, 'Variable already declared previously')
+    errors = addError(errors, 'Variable already declared previously.')
   }
 
   // Once logic is checked, check for capitalization
@@ -123,38 +123,33 @@ function addVariable(variables, line) {
   if (errors == undefined) {
     variables[variableName] = {
       value: lineArray[4],
-      type: variableType
+      type: variableType,
+      constant: constant
     }
   }
   return errors;
 }
 
 // Modules Validation
-function identifyModule(position, line) {
-  //remove the 
-  let lineArray = line.trims.split(/\s+/);
-  //clone the module from position
-  let module = position.module;
-  // identify if it's the end or the beginning
-  if (lineArray[0].toUpperCase() == 'MODULE') {
-
-
-  } else if (lineArray[1].toUpperCase() == 'MODULE') {
-    module = {
-      level: position.module.level - 1,
-      name: position.module.level
-    }
-  }
+function addModule(modules, line) {
+ return undefined;
 }
 function checkCapitalization(lineArray) {
 
 }
 
 export function identifyMistakes(codeObjects, token, line) {
-  if (token == 'comment') {
-    return undefined;
-  } else if (token == 'declare') {
-    return addVariable(codeObjects.variables, line)
+  switch (token) {
+    case 'comment':
+      return undefined;
+    case 'declare':
+      return addVariable(codeObjects.variables, line, false);
+    case 'const':
+      return addVariable(codeObjects.variables, line, true)
+    case 'module':
+      return addModule(codeObjects.module);
+    default:
+      return undefined; // Handle unexpected tokens if needed
   }
 }
 
