@@ -8,9 +8,13 @@ async function processEntry(){
     try {
         // const mistakes = await checker.begin_checker(input);
         const mistakes = [
-        "At line 8:  Variable type doesn't match its value.",
-        "At line 10:  Variable already declared previously.",
-        "At line 18:  Variable has not been declared"
+        "",
+        "",
+        "Variable type doesn't match its value.",
+        "",
+        "",
+        "Variable already declared previously.",
+        "Variable has not been declared."
         ]
         // Display mistakes
         displayMistakes(mistakes)
