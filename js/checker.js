@@ -88,7 +88,7 @@ const text = [
   "Module calculateAverage()",
   "\tDeclare Real drink1 = hi",
   "\tDeclare Real drink2 = 0.0",
-  "\tDeclare Real drink3 = 0.0",
+  "\tDeclare Real drink2 = 0.0",
   "\tDeclare Real average = 0.0",
   "\tDisplay “Enter the value of the first drink in dollars:”",
   "\tInput drink1",
