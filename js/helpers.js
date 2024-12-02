@@ -1,10 +1,18 @@
-export function clearBeginEnd(obj) {
-  for (let key in obj) {
-    if (key === 'begin' || key === 'end') {
-      obj[key] = 0;
-    }
+export function identifyMistakes(codeObjects, token, line) {
+  switch (token) {
+    case 'comment':
+      return undefined;
+    case 'declare':
+      return addVariable(codeObjects.variables, line, false);
+    case 'const':
+      return addVariable(codeObjects.variables, line, true)
+    case 'set':
+      return updateVariable(codeObjects.variables, line)
+    case 'module':
+      return addModule(codeObjects.module);
+    default:
+      return undefined; // Handle unexpected tokens if needed
   }
-  return obj;
 }
 // General Functions
 
@@ -130,27 +138,43 @@ function addVariable(variables, line, constant) {
   return errors;
 }
 
+function updateVariable(variables, line) {
+  let errors = undefined;
+  let lineArray = line.trim().split(/\s+/);
+  let variableName = lineArray[1];
+  let variableValue = undefined;
+  // Check if set is declared properly
+  if (lineArray.length < 4) {
+    errors = addError(errors, 'Incomplete declaration of SET.');
+  }
+  // Check if the variable exists.
+  if (!(variableName in variables)) {
+    errors = addError(errors, 'Variable has not been declared.')
+  }
+
+  // Solve mathematically the value of the 
+  variableValue = eval();
+  // Check if code value type matches the supposed type
+
+
+  // Only update the variables if there are no errors in the expression
+  if (errors == undefined) {
+    variables[variableName].value = variableValue
+  }
+  return errors;
+}
+
+function evaluateExpression() {
+
+}
+
 // Modules Validation
 function addModule(modules, line) {
- return undefined;
+  return undefined;
 }
 function checkCapitalization(lineArray) {
 
 }
 
-export function identifyMistakes(codeObjects, token, line) {
-  switch (token) {
-    case 'comment':
-      return undefined;
-    case 'declare':
-      return addVariable(codeObjects.variables, line, false);
-    case 'const':
-      return addVariable(codeObjects.variables, line, true)
-    case 'module':
-      return addModule(codeObjects.module);
-    default:
-      return undefined; // Handle unexpected tokens if needed
-  }
-}
 
 

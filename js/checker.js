@@ -1,7 +1,7 @@
 // Fix Module begin/end
 
 // Include modules needed
-import { identifyMistakes, clearBeginEnd, identifyType } from './helpers.js';
+import { identifyMistakes, identifyType } from './helpers.js';
 
 // Provided a method for me to insert a mistake into an array if there are more than one mistakes in each line.
 Array.prototype.append = function (index, text) {
@@ -96,7 +96,7 @@ const text = [
   "\tInput drink2",
   "\tDisplay “Enter the value of the third drink in dollars:”",
   "\tInput drink3",
-  "\tSet average = (drink1 + drink2 + drink3) / 3",
+  "\tSet average1111 = (drink1 + drink2 + drink3) / 3",
   "\tDisplay “The average price of the drinks is $”, average",
   "End Module",
   "",
