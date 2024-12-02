@@ -13,16 +13,19 @@ function ifToken(pureline, type) {
   return false;
 }
 function addError(error, message) {
+  if(message == undefined){
+    return error;
+  }
   return `${error} ${message}`
 }
 
 function checkCodeVariableType(value) {
   if (/^-?\d+$/.test(value)) {
-    return "Integer";
+    return "INTEGER";
   } else if (/^-?\d+\.\d+$/.test(value)) {
-    return "Float";
+    return "REAL";
   } else {
-    return "String";
+    return "STRING";
   }
 }
 
@@ -127,7 +130,7 @@ function addVariable(variables, line) {
 
 export function identifyMistakes(codeObjects, token, line) {
   if (token == 'comment') {
-    return "";
+    return undefined;
   } else if (token == 'declare') {
     return addVariable(codeObjects.variables, line)
   }

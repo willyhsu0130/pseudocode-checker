@@ -69,7 +69,9 @@ export async function begin_checker(input) {
 
 function printErrors(array){
   for(let i = 0; i <= array.length; i++){
-    console.log("At line " + i + " " + array[i])
+    if (array[i] != undefined){
+      console.log("At line " + i + " " + array[i])
+    }
   }
 }
 
