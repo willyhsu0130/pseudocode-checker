@@ -152,10 +152,13 @@ function updateVariable(variables, line) {
     errors = addError(errors, 'Variable has not been declared.')
   }
 
-  // Solve mathematically the value of the 
-  variableValue = eval();
-  // Check if code value type matches the supposed type
+  // Solve mathematically the value of the SET
+  // Find last part of the SET 
+  let expression = lineArray.slice(3);
 
+  // Pass it into eval
+  variableValue = evaluateExpression(expression, variables);
+  // Check if code value type matches the supposed type
 
   // Only update the variables if there are no errors in the expression
   if (errors == undefined) {
@@ -164,8 +167,13 @@ function updateVariable(variables, line) {
   return errors;
 }
 
-function evaluateExpression() {
-
+function evaluateExpression(expression, variables) {
+  // Find if any values needs to be subbed
+  for (word of expression){
+    if(word == variables){
+      
+    }
+  }
 }
 
 // Modules Validation
