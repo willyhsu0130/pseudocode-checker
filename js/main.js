@@ -33,7 +33,7 @@ function displayMistakes(mistakes_array){
         if (mistakes_array[i] != undefined){
             const table_row = document.createElement("tr");
             const index = document.createElement("td");
-            index.textContent = "At line: " + i;
+            index.textContent = "At line " + i + ":";
             table_row.appendChild(index);
 
             const mistakes = document.createElement("td");
@@ -46,6 +46,7 @@ function displayMistakes(mistakes_array){
         
     }
 }
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
