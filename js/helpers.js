@@ -150,14 +150,22 @@ function updateVariable(variables, line) {
   // Check if the variable exists.
   if (!(variableName in variables)) {
     errors = addError(errors, 'Variable has not been declared.')
+    // Doesn't exist so just exit the function.
+    return errors;
+  }
+
+  // Check if the variable is a constant
+  if (variables[variableName].constant == true){
+    errors = addError(errors, 'Value of constant shall not be modified.')
   }
 
   // Solve mathematically the value of the SET
   // Find last part of the SET 
   let expression = lineArray.slice(3);
 
-  // Pass it into eval
+  // Evaluate the function
   variableValue = evaluateExpression(expression, variables);
+
   // Check if code value type matches the supposed type
 
   // Only update the variables if there are no errors in the expression
@@ -168,11 +176,19 @@ function updateVariable(variables, line) {
 }
 
 function evaluateExpression(expression, variables) {
-  // Find if any values needs to be subbed
-  for (word of expression){
-    if(word == variables){
-      
+  // Replace any variable references in the expression with their values
+  for (let i = 0; i < expression.length; i++) {
+    if (expression[i] in variables) {
+      expression[i] = variables[expression[i]].value;
     }
+  }
+
+  // Join the expression into a string and safely evaluate it
+  try {
+    return Function(`'use strict'; return (${expression.join(" ")});`)();
+  } catch (error) {
+    console.error("Error evaluating expression:", error);
+    return null; // Handle the error gracefully
   }
 }
 
