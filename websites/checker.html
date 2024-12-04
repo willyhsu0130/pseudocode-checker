@@ -13,6 +13,13 @@
                     <form id="checker" name="checker" method="post">
                         <label for="pseudocode_input" id="pseudocode_input_label">Validate via direct input</label>
                         <input type="button" id="check" value="Check">
+                        <input type="button" id="clear" value="Clear">
+                        <input type="button" id="copy" value="Copy">
+                        <select id="examples" onchange="loadExample()">
+                            <option value="">You need an example?</option>
+                            <option value="example1">Modules</option>
+                            <option value="example2">Arrays</option>
+                        </select>
                         <textarea id="pseudocode_input" name="pseudocode_input" rows="100" cols="50" placeholder="Enter your pseudocode here"></textarea>
                     </form>
                 </div>
