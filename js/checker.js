@@ -33,12 +33,12 @@ function readCode(input) {
 // Performs all the logical parts of checking
 function validate(code) {
     let mistakes = [code.length];
-    //intialize items in psedocode
+    //intialize items in pseudocode
     let codeObjects = {
       variables: [],
       ifStack: [],
       loopStack: [],
-      moduleStack: []
+      modules: []
     }
 
   // Loop through a single line, identify what this is 
@@ -46,7 +46,7 @@ function validate(code) {
     let line = code[i];
     let token = identifyType(line);
     // verify if the token matches the line, where mistakes is an array
-    mistakes[i] = identifyMistakes(codeObjects, token, line);
+    mistakes[i] = identifyMistakes(codeObjects, token, line, code);
   }
   console.log(codeObjects);
   return mistakes;
@@ -71,7 +71,7 @@ export async function begin_checker(input) {
 function printErrors(array){
   for(let i = 0; i <= array.length; i++){
     if (array[i] != undefined){
-      console.log("At line " + i + ": " + array[i])
+      console.log("At line " + (i+1) + ": " + array[i])
     }
   }
 }
@@ -82,13 +82,14 @@ const text = [
   "Module main()",
   "\tCall calculateAverage()",
   "\tCall calculateTip()",
+  "\tCall test()",
   "End Module",
   "",
   "// Module to calculate the average cost of drinks",
   "Module calculateAverage()",
-  "\tDeclare Real drink1 = hi",
-  "\tDeclare Real drink2 = 0.0",
-  "\tDeclare Real drink2 = 0.0",
+  "\tDeclare Real drink1 = 1.0",
+  "\tDeclare Real drink2 = 2.0",
+  "\tDeclare Real drink3 = 3.0",
   "\tDeclare Real average = 0.0",
   "\tDisplay “Enter the value of the first drink in dollars:”",
   "\tInput drink1",
@@ -106,6 +107,7 @@ const text = [
   "\tDeclare Real tipAmount = 0.0",
   "\tDeclare Real totalCost = 0.0",
   "\tConst Real taxRate = 0.13",
+  "\tSet taxRate = 0.23",
   "\tDisplay “How much did the meal cost?”",
   "\tInput mealCost",
   "\tDisplay “How much did you tip?”",

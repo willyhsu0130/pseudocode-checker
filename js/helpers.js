@@ -1,4 +1,4 @@
-export function identifyMistakes(codeObjects, token, line) {
+export function identifyMistakes(codeObjects, token, line, code) {
   switch (token) {
     case 'comment':
       return undefined;
@@ -9,7 +9,7 @@ export function identifyMistakes(codeObjects, token, line) {
     case 'set':
       return updateVariable(codeObjects.variables, line)
     case 'module':
-      return addModule(codeObjects.module);
+      return updateModule(codeObjects.modules, line, code);
     default:
       return undefined; // Handle unexpected tokens if needed
   }
@@ -37,7 +37,7 @@ export function identifyType(line) {
   if (ifToken(pureline, '//')) {
     token = 'comment';
   }
-  else if (ifToken(pureline, 'MODULE ')) {
+  else if (ifToken(pureline, 'MODULE ') || ifToken(pureline, 'CALL ')) {
     token = 'module'
   }
   else if (ifToken(pureline, 'DECLARE ')) {
@@ -70,6 +70,11 @@ function ifToken(pureline, type) {
     return true;
   }
   return false;
+}
+
+// Indentation and Spelling Validation
+function checkCapitalization(lineArray) {
+
 }
 
 // Variable Validation
@@ -142,7 +147,6 @@ function updateVariable(variables, line) {
   let errors = undefined;
   let lineArray = line.trim().split(/\s+/);
   let variableName = lineArray[1];
-  let variableValue = undefined;
   // Check if set is declared properly
   if (lineArray.length < 4) {
     errors = addError(errors, 'Incomplete declaration of SET.');
@@ -164,41 +168,85 @@ function updateVariable(variables, line) {
   let expression = lineArray.slice(3);
 
   // Evaluate the function
-  variableValue = evaluateExpression(expression, variables);
+  let variableValue = evaluateExpression(expression, variables);
 
   // Check if code value type matches the supposed type
 
   // Only update the variables if there are no errors in the expression
-  if (errors == undefined) {
+  if (errors != undefined) {
     variables[variableName].value = variableValue
   }
   return errors;
 }
 
 function evaluateExpression(expression, variables) {
+  // Turn expression array into a string
+  let expressionString = expression.join(' ');
+
+  // Tokenize the expression string:
+  const regex = /[\w\.]+|[+\-*/()]/g;
+  let tokenedExpression = expressionString.match(regex);
+
   // Replace any variable references in the expression with their values
-  for (let i = 0; i < expression.length; i++) {
-    if (expression[i] in variables) {
-      expression[i] = variables[expression[i]].value;
+  for (let i = 0; i < tokenedExpression.length; i++) {
+    if (tokenedExpression[i] in variables) {
+      tokenedExpression[i] = variables[tokenedExpression[i]].value;
     }
   }
+  let tokenedString = tokenedExpression.join(' ')
+  return eval(tokenedString);
+}
 
-  // Join the expression into a string and safely evaluate it
-  try {
-    return Function(`'use strict'; return (${expression.join(" ")});`)();
-  } catch (error) {
-    console.error("Error evaluating expression:", error);
-    return null; // Handle the error gracefully
+
+// Modules Validation
+function updateModule(modules, line, code) {
+  let errors = undefined;
+  let lineArray = line.trim().split(/\s+/);
+  // Find out if it's the start or the end
+  let moduleType = checkModuleType(lineArray);
+  if (moduleType == null){
+    errors = addError(errors, 'Incorrect usage of modules')
+    return errors;
+  }
+  // Check if the called module exists
+  if(moduleType == 'Call'){
+    let moduleName = getModuleName(line);
+    errors = addError(errors, findModule(moduleName, code))
+  } else if(moduleType == 'Module'){
+    // Check if previous module has been closed
+
+  }
+  return errors;
+}
+
+function checkModuleType(lineArray){
+  if(lineArray[0].toUpperCase() == 'MODULE'){
+    return 'Module'
+  }
+  else if(lineArray[0].toUpperCase() == 'END' && lineArray[1] == 'MODULE'){
+    return 'End'
+  }
+  else if(lineArray[0].toUpperCase() == 'CALL'){
+    return 'Call'
+  }
+  else{
+    return null;
   }
 }
 
-// Modules Validation
-function addModule(modules, line) {
-  return undefined;
+function findModule(moduleName, code){
+  for (let i = 0; i < code.length; i++){
+    if(code[i] == `Module ${moduleName}()` ){
+      return undefined
+    }
+  }
+  return `Module ${moduleName} not found.`
 }
-function checkCapitalization(lineArray) {
 
+function getModuleName(line){
+  // Tokenize the expression string:
+  const regex = /[\w\.]+|[+\-*/()]/g;
+  let tokenedLine = line.match(regex);
+  return tokenedLine[1];
 }
-
-
 
