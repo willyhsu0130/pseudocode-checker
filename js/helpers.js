@@ -197,7 +197,6 @@ function evaluateExpression(expression, variables) {
   return eval(tokenedString);
 }
 
-
 // Modules Validation
 function updateModule(modules, line, code) {
   let errors = undefined;
@@ -208,13 +207,26 @@ function updateModule(modules, line, code) {
     errors = addError(errors, 'Incorrect usage of modules')
     return errors;
   }
+  let moduleName = getModuleName(line);
+  if (moduleName == null){
+    errors = addError(errors, 'Syntax error in module statement')
+    return errors;
+  }
   // Check if the called module exists
   if(moduleType == 'Call'){
-    let moduleName = getModuleName(line);
     errors = addError(errors, findModule(moduleName, code))
-  } else if(moduleType == 'Module'){
-    // Check if previous module has been closed
-
+  } 
+  // Check if previous module has been closed when declaring a new one.
+  else if(moduleType == 'Module'){
+    if(modules.length > 1){
+      errors = addError(errors, 'Previous module has not been closed.' )
+    }
+    // Add module to module
+    modules.push(moduleName);
+  }
+  // Remove the most recent module
+  else if(moduleType == 'End'){
+    modules.pop();
   }
   return errors;
 }
@@ -246,7 +258,12 @@ function findModule(moduleName, code){
 function getModuleName(line){
   // Tokenize the expression string:
   const regex = /[\w\.]+|[+\-*/()]/g;
-  let tokenedLine = line.match(regex);
-  return tokenedLine[1];
+  try{
+    let tokenedLine = line.match(regex);
+    return tokenedLine[1];
+  }catch(error){
+    return null;
+  }
+  
 }
 

@@ -114,7 +114,6 @@ const text = [
   "\tInput tipAmount",
   "\tSet totalCost = mealCost * (1 + taxRate) + tipAmount",
   "\tDisplay “Your total cost is $”, totalCost",
-  "End Module"
 ];
 
 
