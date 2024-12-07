@@ -22,7 +22,12 @@ function addError(errors, message) {
     return message;
   }
   else{
-    return errors + " " + message;
+    if(message != undefined){
+      return errors + " " + message;
+    }
+    else{
+      return errors;
+    }
   }
   // It's not the first timd so 
 }
@@ -276,7 +281,7 @@ function checkModuleType(lineArray){
 function findModule(moduleName, code){
   for (let i = 0; i < code.length; i++){
     // Tokenize the module if it's a module
-    if(code[i].toUpperCase().inlcudes('MODULE')){
+    if(code[i].toUpperCase().includes('MODULE')){
       let tokenedModule = tokenizeModule(code[i])
       let end = tokenedModule.indexOf("(");
       // After 

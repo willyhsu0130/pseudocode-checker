@@ -1,4 +1,4 @@
-import * as checker from './checker.js'
+import { begin_checker } from './checker.js'
 
 const $ = selector => document.querySelector(selector);
 
@@ -18,15 +18,7 @@ async function processEntry(){
     try {
         // const mistakes = await checker.begin_checker(input);
         // Test array 
-        const mistakes = [
-        undefined,
-        undefined,
-        "Variable type doesn't match its value.",
-        undefined,
-        undefined,
-        "Variable already declared previously.",
-        "Variable has not been declared."
-        ]
+        let mistakes = begin_checker(input);
         // Display mistakes
         displayMistakes(mistakes)
         console.log(mistakes);
@@ -38,12 +30,7 @@ async function processEntry(){
 
 function displayMistakes(mistakes_array){
     const table = $("#errors");
-    const input = $("#pseudocode_input");
     table.innerHTML = "";
-    if(input.value.trim() === ""){
-        table.textContent = "There is nothing to check, please try to type something";
-        return;
-    }
     for (let i = 0; i < mistakes_array.length; i++) {
         if (mistakes_array[i] != undefined){
             const table_row = document.createElement("tr");

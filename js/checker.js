@@ -5,20 +5,8 @@ import { identifyMistakes, identifyType } from './helpers.js';
 
 // Read the txt file into an array
 function readCode(input) {
-  return new Promise((resolve, reject) => {
-    try {
-      // Read the file synchronously: test.txt is the sample file for checking. 
-      const data = input;
-
-      // Split the data into an array by newline characters
-      const code = data.split("\n");
-
-      resolve(code);;
-    } catch (error) {
-      reject("Error reading code");
-    }
-  }
-  )
+  const code = input.split("\n");
+  return code;
 }
 
 // Performs all the logical parts of checking
@@ -44,13 +32,13 @@ function validate(code) {
 }
 
 // Main function. Async is used here because reading code from file is async so this must be used.
-export async function begin_checker(input) {
+export function begin_checker(input) {
   try {
-    // Load Code
-    // const code = await readCode(input);
-    const mistakes = validate(input);
+    const code = readCode(input);
+    const mistakes = validate(code);
     printErrors(mistakes)
     return mistakes;
+    
   }
   // If code can't be read, an error will show.
   catch (error) {
@@ -107,5 +95,4 @@ const text = [
   "\tDisplay “Your total cost is $”, totalCost",
 ];
 
-
-begin_checker(text);
+printErrors(validate(text));

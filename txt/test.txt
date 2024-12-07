@@ -7,7 +7,7 @@ End Module
 // Module to calculate the average cost of drinks
 Module calculateAverage()
 	Declare Real drink1 = 0.0
-	Declare Real drink1 = 0.0
+Declare Real drink1 = 0.0
 	Declare Real drink2 = 0.0
 	Declare Real drink3 = 0.0
 	Declare Real average = 0.0
