@@ -80,6 +80,22 @@ function loadExample() {
     $("#pseudocode_input").focus()
 }
 
+function updateLineNumbers() {
+    const pseudocodeInput = $("#pseudocode_input");
+    const lineNumbers = $("#line-numbers");
+
+    // Contar las líneas basándonos en los saltos de línea
+    const totalLines = pseudocodeInput.value.split("\n").length;
+
+    // Generar los números de línea
+    let lineNumberText = "";
+    for (let i = 1; i <= totalLines; i++) {
+        lineNumberText += i + "\n";
+    }
+
+    lineNumbers.textContent = lineNumberText;
+}
+
 
 
 
@@ -91,6 +107,11 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#clear").addEventListener("click", clearContent);
     $("#copy").addEventListener("click", copyContent);
     $("#examples").addEventListener("change", loadExample);
+    $("#pseudocode_input").addEventListener("input", updateLineNumbers);
+    $("#pseudocode_input").addEventListener("scroll", () => {
+        $("#line-numbers").scrollTop = $("#pseudocode_input").scrollTop;
+    });
+    updateLineNumbers();
 });
 
 
