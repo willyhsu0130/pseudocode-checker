@@ -9,20 +9,22 @@ export function identifyMistakes(codeObjects, token, line, code) {
     case 'set':
       return updateVariable(codeObjects.variables, line)
     case 'module':
-      return updateModule(codeObjects.modules, line, code);
+      return updateModule(codeObjects, line, code);
     default:
       return undefined; // Handle unexpected tokens if needed
   }
 }
 // General Functions
 
-function addError(error, message) {
-  if (message == undefined) {
-    return error;
+function addError(errors, message) {
+  // Remove undefined if it's the first time.
+  if(errors == undefined){
+    return message;
   }
-  // Remove the undefined at the beginning.
-  error = "";
-  return `${error} ${message}`
+  else{
+    return errors + " " + message;
+  }
+  // It's not the first timd so 
 }
 
 // Token Type Validation
@@ -198,36 +200,61 @@ function evaluateExpression(expression, variables) {
 }
 
 // Modules Validation
-function updateModule(modules, line, code) {
+function updateModule(codeObjects, line, code) {
+  let modules = codeObjects.modules;
   let errors = undefined;
   let lineArray = line.trim().split(/\s+/);
   // Find out if it's the start or the end
   let moduleType = checkModuleType(lineArray);
   if (moduleType == null){
-    errors = addError(errors, 'Incorrect usage of modules')
+    errors = addError(errors, 'Incorrect usage of modules.')
     return errors;
   }
+  // Get the name of the module
   let moduleName = getModuleName(line);
+  // If it's null, stop the function
   if (moduleName == null){
-    errors = addError(errors, 'Syntax error in module statement')
+    errors = addError(errors, 'Syntax error in module statement.')
     return errors;
   }
   // Check if the called module exists
   if(moduleType == 'Call'){
     errors = addError(errors, findModule(moduleName, code))
+    // Check if module arguments are valid
+    let tokenedModule = tokenizeModule(line);
+    // Stop function if there are no arguments to the call
+    if (tokenedModule.length == 2){
+      return errors;
+    }
+
+    let moduleArgs = findModuleArguments(tokenedModule);
+    for(let moduleArg of moduleArgs){
+      if(!(moduleArg in codeObjects.variables)){
+        errors = addError(errors, `The argument '${moduleArg}' is not defined in the module.`)
+      }
+    }
   } 
   // Check if previous module has been closed when declaring a new one.
   else if(moduleType == 'Module'){
+    // Check if previuos module is closed
     if(modules.length > 1){
       errors = addError(errors, 'Previous module has not been closed.' )
     }
-    // Add module to module
+    // Check if the parameter type matches the argument type
+    let tokenedModule = tokenizeModule(line);
+    let moduleArgs = findModuleArguments(tokenedModule);
+    console.log(moduleArgs);
+
+    // errors = addError(errors, checkModuleParameterTypes(moduleArgs))
+
+    // Add module to modules
     modules.push(moduleName);
   }
   // Remove the most recent module
   else if(moduleType == 'End'){
     modules.pop();
   }
+  errors = addError(errors, checkModuleGrammar(line, moduleType))
   return errors;
 }
 
@@ -248,22 +275,42 @@ function checkModuleType(lineArray){
 
 function findModule(moduleName, code){
   for (let i = 0; i < code.length; i++){
-    if(code[i] == `Module ${moduleName}()` ){
-      return undefined
+    // Tokenize the module if it's a module
+    if(code[i].toUpperCase().inlcudes('MODULE')){
+      let tokenedModule = tokenizeModule(code[i])
+      let end = tokenedModule.indexOf("(");
+      // After 
+      if(code[i] == `Module ${moduleName}()` ){
+        return undefined
+      }
     }
   }
   return `Module ${moduleName} not found.`
 }
 
-function getModuleName(line){
-  // Tokenize the expression string:
+function tokenizeModule(line){
   const regex = /[\w\.]+|[+\-*/()]/g;
+  return line.match(regex);
+}
+
+function getModuleName(line){
   try{
-    let tokenedLine = line.match(regex);
+    let tokenedLine = tokenizeModule(line);
     return tokenedLine[1];
   }catch(error){
     return null;
   }
-  
 }
 
+function findModuleArguments(tokenedModule){
+  let start = tokenedModule.indexOf("(") + 1; // Find the position after "("
+  let end = tokenedModule.indexOf(")");      // Find the position of ")"
+  return tokenedModule.slice(start, end); // Extract elements between "(" and ")"
+}
+
+function checkModuleParameterTypes(moduleArgs){
+   // Iterate each parameter
+   return ''
+}
+function checkModuleGrammar(line){
+}

@@ -3,15 +3,6 @@
 // Include modules needed
 import { identifyMistakes, identifyType } from './helpers.js';
 
-// Provided a method for me to insert a mistake into an array if there are more than one mistakes in each line.
-Array.prototype.append = function (index, text) {
-  if (this[index] !== undefined) {
-    this[index] += text; // Concatenate the existing string with the new text
-  } else {
-    this[index] = text;
-  }
-};
-
 // Read the txt file into an array
 function readCode(input) {
   return new Promise((resolve, reject) => {
@@ -80,13 +71,13 @@ function printErrors(array){
 const text = [
   "// Main module",
   "Module main()",
-  "\tCall calculateAverage()",
+  "\tCall calculateAverage(one, two)",
   "\tCall calculateTip()",
   "\tCall test()",
   "End Module",
   "",
   "// Module to calculate the average cost of drinks",
-  "Module calculateAverage()",
+  "Module calculateAverage(Real one, Real two)",
   "\tDeclare Real drink1 = 1.0",
   "\tDeclare Real drink2 = 2.0",
   "\tDeclare Real drink3 = 3.0",
