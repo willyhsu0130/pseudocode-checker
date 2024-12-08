@@ -94,10 +94,26 @@ function updateLineNumbers() {
     }
 
     lineNumbers.textContent = lineNumberText;
+    
+    
 }
 
+function tabkey(event, textarea) {
+    if (event.key === "Tab") {
+        event.preventDefault(); // Prevent the default tab behavior
 
+        // Get cursor positions
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
 
+        // Insert the tab character (4 spaces)
+        const tab = "    ";
+        textarea.value = textarea.value.substring(0, start) + tab + textarea.value.substring(end);
+
+        // Move the cursor to the end of the inserted tab
+        textarea.selectionStart = textarea.selectionEnd = start + tab.length;
+    }
+}
 
 
 
@@ -111,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     $("#pseudocode_input").addEventListener("scroll", () => {
         $("#line-numbers").scrollTop = $("#pseudocode_input").scrollTop;
     });
+    $("#pseudocode_input").addEventListener("keydown", (event) => tabkey(event, event.target));
+    
     updateLineNumbers();
 });
-
-
