@@ -3,16 +3,12 @@ import { begin_checker } from './checker.js'
 const $ = selector => document.querySelector(selector);
 
 const examples = {
-    example1: `Main module ()
-                Call getInputs 
-               End Module`,
+    example1: `Main module (\n\tCall getInputs\nEnd Module`,
 
-    example2: `Main module ()
-                Call calculateAverage 
-               End Module`
+    example2: `Main module ()\n\tCall calculateAverage\nEnd Module`
 };
 
-async function processEntry(){
+async function processEntry() {
     // Retrieve data from textbox
     const input = $("#pseudocode_input").value;
     try {
@@ -22,17 +18,17 @@ async function processEntry(){
         // Display mistakes
         displayMistakes(mistakes)
         console.log(mistakes);
-    } 
+    }
     catch (error) {
         console.error('Error:', error); // Logs any errors
     }
 }
 
-function displayMistakes(mistakes_array){
+function displayMistakes(mistakes_array) {
     const table = $("#errors");
     table.innerHTML = "";
     for (let i = 0; i < mistakes_array.length; i++) {
-        if (mistakes_array[i] != undefined){
+        if (mistakes_array[i] != undefined) {
             const table_row = document.createElement("tr");
             const index = document.createElement("td");
             index.textContent = "At line " + i + ":";
@@ -43,13 +39,11 @@ function displayMistakes(mistakes_array){
             table_row.appendChild(mistakes);
 
             table.appendChild(table_row);
-
         }
-        
     }
 }
 
-function clearContent (){
+function clearContent() {
     $("#pseudocode_input").value = "";
     $("#errors").innerHTML = "";
     $("#message").textContent = "";
@@ -69,13 +63,13 @@ function copyContent() {
 
 
 function loadExample() {
-    const selectedExample = document.querySelector("#examples").value; 
+    const selectedExample = document.querySelector("#examples").value;
     const pseudocodeInput = document.querySelector("#pseudocode_input");
-    
+
     if (selectedExample) {
-        pseudocodeInput.value = examples[selectedExample]; 
+        pseudocodeInput.value = examples[selectedExample];
     } else {
-        pseudocodeInput.value = ""; 
+        pseudocodeInput.value = "";
     }
     $("#pseudocode_input").focus()
 }
@@ -94,8 +88,8 @@ function updateLineNumbers() {
     }
 
     lineNumbers.textContent = lineNumberText;
-    
-    
+
+
 }
 
 function tabkey(event, textarea) {
@@ -128,6 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
         $("#line-numbers").scrollTop = $("#pseudocode_input").scrollTop;
     });
     $("#pseudocode_input").addEventListener("keydown", (event) => tabkey(event, event.target));
-    
+
     updateLineNumbers();
 });

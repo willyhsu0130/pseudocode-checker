@@ -22,6 +22,9 @@ function validate(code) {
 
   // Loop through a single line, identify what this is 
   for (let i = 0; i < code.length; i++) {
+    if(i == 9){
+      debugger; 
+    }
     let line = code[i];
     let token = identifyType(line);
     // verify if the token matches the line, where mistakes is an array
@@ -60,13 +63,13 @@ const text = [
   "// Main module",
   "Module main()",
   "\tCall calculateAverage(one, two)",
-  "\tCall calculateTip()",
+  "Call calculateTip()",
   "\tCall test()",
   "End Module",
   "",
   "// Module to calculate the average cost of drinks",
   "Module calculateAverage(Real one, Real two)",
-  "\tDeclare Real drink1 = 1.0",
+  "declare Real drink1 = 1.0",
   "\tDeclare Real drink2 = 2.0",
   "\tDeclare Real drink3 = 3.0",
   "\tDeclare Real average = 0.0",
@@ -93,6 +96,7 @@ const text = [
   "\tInput tipAmount",
   "\tSet totalCost = mealCost * (1 + taxRate) + tipAmount",
   "\tDisplay “Your total cost is $”, totalCost",
+  "End Module"
 ];
 
 printErrors(validate(text));

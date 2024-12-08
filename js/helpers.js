@@ -3,11 +3,11 @@ export function identifyMistakes(codeObjects, token, line, code) {
     case 'comment':
       return undefined;
     case 'declare':
-      return addVariable(codeObjects.variables, line, false);
+      return addVariable(codeObjects, line, false);
     case 'const':
-      return addVariable(codeObjects.variables, line, true)
+      return addVariable(codeObjects, line, true)
     case 'set':
-      return updateVariable(codeObjects.variables, line)
+      return updateVariable(codeObjects, line)
     case 'module':
       return updateModule(codeObjects, line, code);
     default:
@@ -44,7 +44,7 @@ export function identifyType(line) {
   if (ifToken(pureline, '//')) {
     token = 'comment';
   }
-  else if (ifToken(pureline, 'MODULE ') || ifToken(pureline, 'CALL ')) {
+  else if (ifToken(pureline, 'MODULE ') || ifToken(pureline, 'CALL ') || ifToken(pureline, 'END MODULE')) {
     token = 'module'
   }
   else if (ifToken(pureline, 'DECLARE ')) {
@@ -79,11 +79,6 @@ function ifToken(pureline, type) {
   return false;
 }
 
-// Indentation and Spelling Validation
-function checkCapitalization(lineArray) {
-
-}
-
 // Variable Validation
 function checkCodeVariableType(value) {
   if (/^-?\d+$/.test(value)) {
@@ -113,7 +108,8 @@ function checkVariableValue(type, lineArray) {
   }
 }
 
-function addVariable(variables, line, constant) {
+function addVariable(codeObjects, line, constant) {
+  let variables = codeObjects.variables;
   let errors = undefined;
   let variableTypes = ['REAL', 'INT', 'STRING'];
   let lineArray = line.trim().split(/\s+/);
@@ -135,10 +131,6 @@ function addVariable(variables, line, constant) {
     errors = addError(errors, 'Variable already declared previously.')
   }
 
-  // Once logic is checked, check for capitalization
-  errors = addError(errors, checkCapitalization(lineArray));
-
-
   // Add the variable to the codeObjects if no errors
   if (errors == undefined) {
     variables[variableName] = {
@@ -147,10 +139,18 @@ function addVariable(variables, line, constant) {
       constant: constant
     }
   }
+  // The third argument is passed in a function to check if it's a const or a declare
+  if(constant === true){
+    errors = errors = addError(errors, checkVariablesGrammar(codeObjects, line, 'Const'));
+  }else{
+    errors = errors = addError(errors, checkVariablesGrammar(codeObjects, line, 'Declare'));
+  }
+
   return errors;
 }
 
-function updateVariable(variables, line) {
+function updateVariable(codeObjects, line) {
+  let variables = codeObjects.variables;
   let errors = undefined;
   let lineArray = line.trim().split(/\s+/);
   let variableName = lineArray[1];
@@ -183,6 +183,9 @@ function updateVariable(variables, line) {
   if (errors != undefined) {
     variables[variableName].value = variableValue
   }
+
+  // Grammar check
+  errors = addError(errors, checkVariablesGrammar(codeObjects, line, 'Set'))
   return errors;
 }
 
@@ -202,6 +205,26 @@ function evaluateExpression(expression, variables) {
   }
   let tokenedString = tokenedExpression.join(' ')
   return eval(tokenedString);
+}
+
+function checkVariablesGrammar(codeObjects, line, type){
+  let trimmedLine = line.trim();
+  let mistakes = undefined;
+  if(type == 'Set' && !trimmedLine.startsWith('Set')){
+    mistakes = addError(mistakes, "'Set' should be capitalized with remaining letters lowercase. ") 
+  }
+  if(type == 'Declare' && !trimmedLine.startsWith('Declare')){
+    mistakes = addError(mistakes, "'Declare' should be capitalized with remaining letters lowercase. ");
+  }
+  if(type == 'Set' && !trimmedLine.startsWith('Set')){
+    mistakes = addError(mistakes, "'Set' should be capitalized with remaining letters loweracase. ")
+  }
+  if(type == 'Const' && !trimmedLine.startsWith('Const')){
+    mistakes = addError(mistakes, "'Const' should be capitalized with remaning letters being lowecase. ")
+  }
+  //Check Indentation
+  mistakes = addError(mistakes, checkIndentation(codeObjects, line));
+  return mistakes
 }
 
 // Modules Validation
@@ -259,18 +282,19 @@ function updateModule(codeObjects, line, code) {
   else if(moduleType == 'End'){
     modules.pop();
   }
-  errors = addError(errors, checkModuleGrammar(line, moduleType))
+  errors = addError(errors, checkModuleGrammar(codeObjects, line, moduleType))
   return errors;
 }
 
 function checkModuleType(lineArray){
-  if(lineArray[0].toUpperCase() == 'MODULE'){
+  let capArray = lineArray.map(str => str.toUpperCase());
+  if(capArray[0].toUpperCase() == 'MODULE'){
     return 'Module'
   }
-  else if(lineArray[0].toUpperCase() == 'END' && lineArray[1] == 'MODULE'){
+  else if(capArray[0] == 'END' && capArray[1] == 'MODULE'){
     return 'End'
   }
-  else if(lineArray[0].toUpperCase() == 'CALL'){
+  else if(capArray[0] == 'CALL'){
     return 'Call'
   }
   else{
@@ -317,5 +341,31 @@ function checkModuleParameterTypes(moduleArgs){
    // Iterate each parameter
    return ''
 }
-function checkModuleGrammar(line){
+
+function checkModuleGrammar(codeObjects, line, type){
+  let trimmedLine = line.trim();
+  let mistakes = undefined;
+  if(type == 'Module' && !line.startsWith('Module')){
+    mistakes = addError(mistakes, "'Module' should be capitalized. ")
+  }
+  if(type == 'End' && !line.startsWith('End Module')){
+    mistakes = addError(mistakes, "'End' and 'Module' should be capitalized. ");
+  }
+  if(type == 'Call'){
+    mistakes = addError(mistakes, checkIndentation(codeObjects, line));
+    if(!trimmedLine == 'Call'){
+      mistakes = addError(mistakes, "'Call' should be capitalized. " );
+    }
+  }
+  if(mistakes == ''){
+    return undefined;
+  }
+  return mistakes
+}
+
+function checkIndentation(codeObjects, line){
+  if(!line.startsWith('\t') && codeObjects.modules != undefined){
+    return 'Contents inside a module should be indented. '
+  }
+  return undefined; 
 }
