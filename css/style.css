@@ -6,7 +6,7 @@
     --footer-color: #D0D2B7;
 }
 
-.wireframe1 .navbar {
+.wireframe1 .navbar{
     padding: 0px;
     margin: 0px;
     width: 100%;
@@ -98,7 +98,7 @@
     position: relative;
     display: inline-block;
 }
-.wireframe1 .dropdown-content {
+.wireframe1 .dropdown-content{
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -164,12 +164,12 @@
 
 /* ELEMENTS */
 
-body {
+body, .contact-body {
     font-family: Avenir, Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
 }
-.wireframe1 nav {
+.wireframe1 nav{
     margin: 0;
     padding: 10px 30px 10px 30px;
     background-color: var(--nav-background-color);
@@ -216,7 +216,7 @@ body {
 .wireframe1 header p {
     font-size: 20px;
 }
-.wireframe1 header button {
+.wireframe1 header button{
     width: 280px;
     height: 100px;
     font-size: 30px;
@@ -263,172 +263,6 @@ footer span{
 
 #corporate {
     text-align: center;
-}
-
-.wireframe2 header {
-    background-color: #f2f2f2;
-    background-image: url(../images/Background.jpg); /*https://images.pexels.com/photos/8147480/pexels-photo-8147480.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 125px 50px 175px;
-    align-items: center;
-}
-.wireframe2 header h1{
-    font-size: 70px;
-    margin: 0;
-    font-weight: 900;
-}
-
-.wireframe2 header p{
-    font-size: 25px;
-}
-.wireframe2 nav {
-    width: 13%;
-    background-color: #333;
-    color: white;
-}
-
-.wireframe2 main{
-    width: 87%;
-}
-#seperator {
-    border: solid #6E6362;
-}
-.wireframe2 .navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 35px;
-}
-
-.wireframe2 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-
-.wireframe2 nav button {
-    border-radius: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-family: Avenir, Arial, Helvetica, sans-serif;
-    font-weight: 800;
-}
-
-.wireframe2 nav button:hover {
-    background-color: #555;
-}
-
-.wireframe2 nav img{
-    margin-bottom: 40px;
-}
-.wireframe2 header button {
-    border-radius: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-family: Avenir, Arial, Helvetica, sans-serif;
-    font-weight: 800;
-    height: 70px;
-    font-size: 20px;
-    margin-top: 75px;
-}
-
-.wireframe2 header button:hover {
-    background-color: #555;
-}
-
-.wireframe2 .section2 {
-    background-color: #ECDFCC;
-    padding: 80px 3%;
-}
-
-.wireframe2 .content-columns {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.wireframe2 .section2 h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    margin-top: 0px;
-}
-
-.wireframe2 .content-box {
-    background-color: white;
-    width: 27%;
-    text-align: center;
-    border-radius: 10px;
-    padding: 30px;
-}
-
-.wireframe2 .intro {
-    padding: 30px 40px;
-    text-align: left;
-    margin: 0;
-}
-.wireframe2 .intro h2{
-    font-size: 40px;
-}
-.wireframe2 .intro p{
-    line-height: 40px;
-    font-size: 20px;
-}
-
-.wireframe2 .section2 h2{
-    font-size: 40px;
-}
-
-.wireframe2 .content-columns2 {
-    padding: 2.5%;
-}
-
-.wireframe2 .content-box2 {
-    background-color: #e4e4e4;
-    border-radius: 10px;
-    line-height: 25px;
-    padding: 25px;
-    width: 45%;
-}
-
-.content-box2 a{
-    color: black;
-    font-weight: 800;
-    text-decoration: none;
-}
-
-.content-box2 a:hover{
-    text-decoration: underline;
-}
-
-.wireframe2 .content-row2 {
-    margin-bottom: 40px;
-}
-
-.wireframe2 .content-row2 > h2 {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 40px;
-}
-
-.wireframe2 #about-us{
-    margin-top: 3px;
-}
-
-.wireframe2 #login{
-    margin-top: 40px;
 }
 
 .checker main{
@@ -503,4 +337,87 @@ footer span{
     outline: none;
     line-height: 1.5; /* Same line-height as the line numbers */
     padding-left: 10px; /* Adds space to the left to prevent text overlap */
+}
+
+.contact-button{
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    font-weight: 800;
+}
+
+.contact-button:hover{
+    background-color: #B4A186;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact{
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    margin: 0%;
+    padding: 20px;
+}
+
+nav .contact{
+    background-color: var(--nav-background-color);
+}
+
+.contact li a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+.contact li a:hover{
+    background-color: #B4A186;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+form div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input, .textarea, .button {
+    width: 50%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.button {
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #555;
+}
+
+.contact-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    margin: 0;
+}
+
+.contact-main {
+    flex: 1; 
+    padding: 20px;
+     background-image: url(../images/form-background-image.jpg); /*https://img.freepik.com/free-photo/pleased-hear-best-friend-calling-from-abroad-portrait-surprised-pleased-charming-blonde-female_1258-253303.jpg?t=st=1733616502~exp=1733620102~hmac=f703b459bb1be990deba9a3bd41bc3285898e06b8cc769468379a2d633e7ed8f&w=2000 */
+    background-size: cover;
+}
+
+.textarea{
+    height: 300px;
 }
