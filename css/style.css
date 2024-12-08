@@ -320,16 +320,15 @@ footer span{
 
 .contact-button:hover{
     background-color: #B4A186;
-    padding: 10px;
     border-radius: 5px;
 }
 
 .contact{
     display: flex;
     list-style: none;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0%;
-    padding: 20px;
+    padding: 25px;
 }
 
 nav .contact{
@@ -340,10 +339,11 @@ nav .contact{
     text-decoration: none;
     color: white;
     font-size: 16px;
+    font-weight: 800;
 }
 .contact li a:hover{
     background-color: #B4A186;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
 }
 
@@ -371,7 +371,7 @@ label {
     border-radius: 5px;
 }
 
-button:hover {
+.button:hover {
     background: #555;
 }
 
@@ -385,7 +385,7 @@ button:hover {
 .contact-main {
     flex: 1; 
     padding: 20px;
-     background-image: url(../images/form-background-image.jpg); /*https://img.freepik.com/free-photo/pleased-hear-best-friend-calling-from-abroad-portrait-surprised-pleased-charming-blonde-female_1258-253303.jpg?t=st=1733616502~exp=1733620102~hmac=f703b459bb1be990deba9a3bd41bc3285898e06b8cc769468379a2d633e7ed8f&w=2000 */
+    background-image: url(../images/form-background-image.jpg); /*https://img.freepik.com/free-photo/pleased-hear-best-friend-calling-from-abroad-portrait-surprised-pleased-charming-blonde-female_1258-253303.jpg?t=st=1733616502~exp=1733620102~hmac=f703b459bb1be990deba9a3bd41bc3285898e06b8cc769468379a2d633e7ed8f&w=2000 */
     background-size: cover;
 }
 
