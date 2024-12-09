@@ -14,8 +14,10 @@ export function identifyMistakes(codeObjects, token, line, code) {
       return undefined; // Handle unexpected tokens if needed
   }
 }
+
 // General Functions
 
+// Allow all the functions to append errors to an string inside an array.
 function addError(errors, message) {
   // Remove undefined if it's the first time.
   if(errors == undefined){
@@ -72,6 +74,7 @@ export function identifyType(line) {
   return token;
 }
 
+// A helper function for identifyType
 function ifToken(pureline, type) {
   if (pureline.includes(type)) {
     return true;
@@ -80,6 +83,8 @@ function ifToken(pureline, type) {
 }
 
 // Variable Validation
+
+// Checks what type of variable is declared, INT, STRING, REAL?
 function checkCodeVariableType(value) {
   if (/^-?\d+$/.test(value)) {
     return "INTEGER";
@@ -90,6 +95,7 @@ function checkCodeVariableType(value) {
   }
 }
 
+// Checks if the assigned value and type  of the variable matches the given type
 function checkVariableValue(type, lineArray) {
   let upperType = type.toUpperCase();
   // Check if a value is intiailized
@@ -219,7 +225,7 @@ function checkVariablesGrammar(codeObjects, line, type){
   if(type == 'Set' && !trimmedLine.startsWith('Set')){
     mistakes = addError(mistakes, "'Set' should be capitalized with remaining letters loweracase. ")
   }
-  if(type == 'Const' && !trimmedLine.startsWith('Const')){
+  if(type == 'Const' && (!trimmedLine.startsWith('Const') || !trimmedLine.startsWith('CONST'))){
     mistakes = addError(mistakes, "'Const' should be capitalized with remaning letters being lowecase. ")
   }
   //Check Indentation
@@ -356,9 +362,6 @@ function checkModuleGrammar(codeObjects, line, type){
     if(!trimmedLine == 'Call'){
       mistakes = addError(mistakes, "'Call' should be capitalized. " );
     }
-  }
-  if(mistakes == ''){
-    return undefined;
   }
   return mistakes
 }

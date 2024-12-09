@@ -31,7 +31,7 @@ function displayMistakes(mistakes_array) {
         if (mistakes_array[i] != undefined) {
             const table_row = document.createElement("tr");
             const index = document.createElement("td");
-            index.textContent = "At line " + i + ":";
+            index.textContent = "At line " + (i+1) + ":";
             table_row.appendChild(index);
 
             const mistakes = document.createElement("td");
@@ -101,15 +101,13 @@ function tabkey(event, textarea) {
         const end = textarea.selectionEnd;
 
         // Insert the tab character (4 spaces)
-        const tab = "    ";
+        const tab = "\t";
         textarea.value = textarea.value.substring(0, start) + tab + textarea.value.substring(end);
 
         // Move the cursor to the end of the inserted tab
         textarea.selectionStart = textarea.selectionEnd = start + tab.length;
     }
 }
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
     // hook up click events for both buttons
