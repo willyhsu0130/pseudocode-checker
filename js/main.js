@@ -3,9 +3,58 @@ import { begin_checker } from './checker.js'
 const $ = selector => document.querySelector(selector);
 
 const examples = {
-    example1: `Main module (\n\tCall getInputs\nEnd Module`,
+    example1: `Main Module ()
+    Call calculateArea()
+End Module
 
-    example2: `Main module ()\n\tCall calculateAverage\nEnd Module`
+Module calculateArea()
+    Declare Real length
+    Declare Real width
+    Declare Real area
+
+    Display "Enter the length of the rectangle:"
+    Input length
+    Display "Enter the width of the rectangle:"
+    Input width
+
+    Set area = length * width
+    Display "The area of the rectangle is: ", area
+End Module`,
+
+    example2: `Main Module ()
+    Const Int SIZE = 3
+    Declare Int numbers[SIZE]
+    Declare Int searchValue
+    Declare Int i
+
+    For i = 0 To SIZE - 1
+        Display "Enter a number:"
+        Input numbers[i]
+    End For
+
+    Display "Enter the value to search:"
+    Input searchValue
+
+    Call Search(numbers, SIZE, searchValue)
+End Module
+
+Module Search(Int numbers[ ], Int SIZE, Int searchValue)
+    Declare Int i
+    Declare found = false
+
+    For i = 0 To SIZE - 1
+        If numbers[i] == searchValue Then
+            Set found = true
+            Exit For
+        End If
+    End For
+
+    If found == true Then
+        Display "Value found in the array."
+    Else
+        Display "Value not found in the array."
+    End If
+End Module`
 };
 
 async function processEntry() {
@@ -44,9 +93,11 @@ function displayMistakes(mistakes_array) {
 }
 
 function clearContent() {
-    $("#pseudocode_input").value = "";
-    $("#errors").innerHTML = "";
-    $("#message").textContent = "";
+    $("#pseudocode_input").value = ""; 
+    $("#errors").innerHTML = ""; 
+    $("#message").textContent = ""; 
+    const lineNumbers = $("#line-numbers");
+    lineNumbers.textContent = "1\n"; 
 }
 
 function copyContent() {
@@ -72,6 +123,7 @@ function loadExample() {
         pseudocodeInput.value = "";
     }
     $("#pseudocode_input").focus()
+    updateLineNumbers();
 }
 
 function updateLineNumbers() {
