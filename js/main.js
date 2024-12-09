@@ -93,9 +93,11 @@ function displayMistakes(mistakes_array) {
 }
 
 function clearContent() {
-    $("#pseudocode_input").value = "";
-    $("#errors").innerHTML = "";
-    $("#message").textContent = "";
+    $("#pseudocode_input").value = ""; 
+    $("#errors").innerHTML = ""; 
+    $("#message").textContent = ""; 
+    const lineNumbers = $("#line-numbers");
+    lineNumbers.textContent = "1\n"; 
 }
 
 function copyContent() {
