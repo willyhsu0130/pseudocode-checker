@@ -41,8 +41,7 @@ $(document).ready(function () {
   function showError(selector, message) {
     $(selector).after(`<div class="error-message" style="color: red;">${message}</div>`);
   }
-
-  // Optional: Clear errors on input focus
+  
   $("input, textarea").on("focus", function () {
     $(this).next(".error-message").remove();
   });
