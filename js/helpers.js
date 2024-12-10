@@ -123,7 +123,7 @@ function addVariable(codeObjects, line, constant) {
     errors = addError(errors, 'Incomplete declaration.');
   }
   if (!variableTypes.includes(lineArray[1].toUpperCase())) {
-    errors = addError(errors, 'Variable type is not declared');
+    errors = addError(errors, 'Variable type is not declared.');
   }
 
   let variableName = lineArray[2];
@@ -225,8 +225,8 @@ function checkVariablesGrammar(codeObjects, line, type){
   if(type == 'Set' && !trimmedLine.startsWith('Set')){
     mistakes = addError(mistakes, "'Set' should be capitalized with remaining letters loweracase. ")
   }
-  if(type == 'Const' && (!trimmedLine.startsWith('Const') || !trimmedLine.startsWith('CONST'))){
-    mistakes = addError(mistakes, "'Const' should be capitalized with remaning letters being lowecase. ")
+  if(type == 'Const' && !(trimmedLine.startsWith('Const') || trimmedLine.startsWith('CONST'))){
+    mistakes = addError(mistakes, "'Const' consists of capitalizaiton errors.")
   }
   //Check Indentation
   mistakes = addError(mistakes, checkIndentation(codeObjects, line));
@@ -367,7 +367,7 @@ function checkModuleGrammar(codeObjects, line, type){
 }
 
 function checkIndentation(codeObjects, line){
-  if(!line.startsWith('\t') && codeObjects.modules != undefined){
+  if(!line.startsWith('\t') && codeObjects.modules.length > 0){
     return 'Contents inside a module should be indented. '
   }
   return undefined; 

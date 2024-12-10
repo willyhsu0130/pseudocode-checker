@@ -90,6 +90,7 @@ function displayMistakes(mistakes_array) {
             table.appendChild(table_row);
         }
     }
+    
 }
 
 function clearContent() {
