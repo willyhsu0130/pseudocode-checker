@@ -204,10 +204,11 @@ body, .contact-body {
     right: 0px;
     left: 0px;
     display: flex;
+    height: 50px;
 }
 
 .wireframe1 nav img {
-    margin: 5px 0;
+    margin: 0;
 }
 
 .wireframe1 nav button {
@@ -639,6 +640,30 @@ label {
     height: 300px;
 }
 
+@media screen and (min-width: 220px) and (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    .contact-main {
+        background-image: none;
+        background-color: #527581;
+    }
+    .input, .textarea, .button{
+        width: 100%;
+    }
+    .contact li a{
+        font-size: 12.5px;
+        font-weight: 900;
+    }
+    .checker label{
+        margin-bottom: px;
+    }
+    .checker input[type="button"] {
+        font-size: 12px;
+        padding: 10px 16px;
+        color: white;
+    }
+}
 
 .about-us nav{
     background-color: var(--nav-background-color);
