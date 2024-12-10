@@ -3,23 +3,23 @@ import { begin_checker } from './checker.js'
 const $ = selector => document.querySelector(selector);
 
 const examples = {
-    example1: `Main Module ()
-    Call calculateArea()
+    example1: `Main Module()
+\tCall calculateArea()
 End Module
 
 Module calculateArea()
-    Declare Real length
-    Declare Real width
-    Declare Real area
+\tDeclare Real length = 0.0
+\tDeclare Real width = 0.0
+\tDeclare Real area = 0.0
 
-    Display "Enter the length of the rectangle:"
-    Input length
-    Display "Enter the width of the rectangle:"
-    Input width
+\tDisplay "Enter the length of the rectangle:"
+\tInput l
+\tDisplay "Enter the width of the rectangle:"
+\tInput width
 
-    Set area = length * width
-    Display "The area of the rectangle is: ", area
-End Module`,
+\tSet area = length * width
+\tDisplay "The area of the rectangle is: ", area
+End Module`
 }
 
 async function processEntry() {
