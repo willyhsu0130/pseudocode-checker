@@ -22,7 +22,7 @@ function validate(code) {
 
   // Loop through a single line, identify what this is 
   for (let i = 0; i < code.length; i++) {
-    if(i == 9){
+    if(i == 5){
       debugger; 
     }
     let line = code[i];

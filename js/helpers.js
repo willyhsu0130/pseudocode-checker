@@ -104,7 +104,7 @@ function checkVariableValue(type, lineArray) {
     let codeVariableType = checkCodeVariableType(lineArray[4]);
     // Check if the real type and the supposed type matches
     if (upperType != codeVariableType) {
-      return "Variable type doesn't match its value."
+      return "Variable type doesn't match its initialized value."
     }
     // Value is not intialized
   } else if (lineArray.length == 3) {
@@ -210,7 +210,14 @@ function evaluateExpression(expression, variables) {
     }
   }
   let tokenedString = tokenedExpression.join(' ')
-  return eval(tokenedString);
+  try {
+    // Attempt to evaluate the expression
+    return eval(tokenedString);
+  } catch (error) {
+    // If eval fails, handle the error
+    console.error('Error evaluating expression:', error);
+    return null;  // Or you could return some other value to indicate failure
+  }
 }
 
 function checkVariablesGrammar(codeObjects, line, type){

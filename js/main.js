@@ -3,7 +3,7 @@ import { begin_checker } from './checker.js'
 const $ = selector => document.querySelector(selector);
 
 const examples = {
-    example1: `Main Module()
+    example1: `Module main()
 \tCall calculateArea()
 End Module
 
