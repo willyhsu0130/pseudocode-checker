@@ -415,13 +415,22 @@ footer span {
     }
 }
 
+.checker nav {
+    background-color: var(--nav-background-color);
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    list-style: none;
+}
+
 .checker main{
     background-color: #B4A186;
+    padding-top: 90px;
 }
 
 .checker main h1{
     margin: 0;
-    padding: 10px;
+    margin-left: 20px;
 }
 .checker .main-column{
     padding: 20px;
@@ -478,6 +487,9 @@ footer span {
     margin-top: 10px;
 }
 
+.checker button{
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+}
 .checker #check {
     background-color: #4CAF50;
 }
