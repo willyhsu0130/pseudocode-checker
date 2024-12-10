@@ -412,9 +412,6 @@ footer span {
     }
 }
 
-
-
-
 .checker main{
     background-color: #B4A186;
 }
@@ -471,6 +468,11 @@ footer span {
     border: none;
     transition: background-color 0.3s, transform 0.2s;
     display: inline-block;
+}
+
+.checker input{
+    margin-right: 10px;
+    margin-top: 10px;
 }
 
 .checker #check {
@@ -655,7 +657,7 @@ label {
 .about-us nav ul {
     list-style: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0;
 }
 
@@ -723,6 +725,16 @@ label {
     bottom: 0;
     width: 100%;
 }
+
+#examples{
+    margin-top: 20px;
+}
+
+.main-about{
+    background-color: #ECDFCC;
+}
+
+
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -758,6 +770,29 @@ label {
         position: relative;
         padding: 15px;
     }
+
+    body {
+        font-size: 14px;
+    }
+    .contact-main {
+        background-image: none;
+        background-color: #527581;
+    }
+    .input, .textarea, .button{
+        width: 100%;
+    }
+    .contact li a{
+        font-size: 12.5px;
+        font-weight: 900;
+    }
+    .checker label{
+        margin-bottom: px;
+    }
+    .checker input[type="button"] {
+        font-size: 12px;
+        padding: 10px 16px;
+        color: white;
+    }
 }
 
 /* For Desktop Devices (larger than 768px) */
@@ -784,3 +819,5 @@ label {
         font-size: 16px;
     }
 }
+
+
