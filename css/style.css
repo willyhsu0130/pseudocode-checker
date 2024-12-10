@@ -13,10 +13,18 @@ body, .contact-body {
 }
 
 .wireframe1 .navbar {
+body, .contact-body {
+    font-family: Avenir, Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.wireframe1 .navbar {
     padding: 0px;
     margin: 0px;
     width: 100%;
 }
+
 
 .wireframe1 .main-row {
     display: flex;
@@ -24,6 +32,7 @@ body, .contact-body {
     padding: 10px;
     align-items: stretch;
 }
+
 
 .wireframe1 .main-column {
     padding: 15px;
@@ -33,10 +42,12 @@ body, .contact-body {
     border-radius: 10px;
 }
 
+
 .wireframe1 .first-container {
     background-color: #ECDFCC;
     padding: 50px 50px;
 }
+
 
 .wireframe1 .first-container > p {
     margin-bottom: 60px;
@@ -44,14 +55,17 @@ body, .contact-body {
     line-height: 40px;
 }
 
+
 .wireframe1 .second-container {
     background-color: white;
     padding: 50px 50px;
 }
 
+
 .wireframe1 .second-container h2 {
     color: #333;
 }
+
 
 .wireframe1 .divide3 {
     background-color: white;
@@ -61,6 +75,7 @@ body, .contact-body {
     width: 30%;
     padding-bottom: 45px;
 }
+
 
 .wireframe1 .divide3 p {
     font-size: 23px;
@@ -74,6 +89,7 @@ body, .contact-body {
     text-align: center;
 }
 
+
 .wireframe1 .divide2 {
     width: 45%;
     min-height: fit-content;
@@ -83,18 +99,22 @@ body, .contact-body {
     line-height: 30px;
 }
 
+
 .wireframe1 .divide2 p {
     text-align: left;
     font-size: 20px;
 }
 
+
 .wireframe1 .divide2 ol {
     font-size: 20px;
 }
 
+
 .wireframe1 .divide2 span {
     font-size: 20px;
 }
+
 
 .wireframe1 .divide2 a {
     font-size: 20px;
@@ -105,9 +125,11 @@ body, .contact-body {
     font-weight: 500;
 }
 
+
 .wireframe1 .divide2 a:hover {
     text-decoration: underline;
 }
+
 
 .wireframe1 .divide2 a.dropbtn {
     background-color: transparent;
@@ -116,10 +138,13 @@ body, .contact-body {
     cursor: pointer;
 }
 
+
 .wireframe1 .dropdown {
     position: relative;
     display: inline-block;
 }
+
+.wireframe1 .dropdown-content {
 
 .wireframe1 .dropdown-content {
     display: none;
@@ -133,12 +158,15 @@ body, .contact-body {
 }
 
 .align-left {
+.align-left {
     text-align: left;
 }
 
 .align-right {
+.align-right {
     text-align: right;
 }
+
 
 .dropdown-content a {
     color: rgb(150, 126, 118);
@@ -147,13 +175,16 @@ body, .contact-body {
     display: block;
 }
 
+
 .dropdown-content a:hover {
     background-color: #f1f1f1;
 }
 
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 
 .footer-row {
     display: flex;
@@ -164,23 +195,31 @@ body, .contact-body {
 }
 
 .footer-column {
+
+.footer-column {
     display: flex;
     flex-direction: column;
 }
 
 .footer-nav-width {
     width: 20%;
+
+.footer-nav-width {
+    width: 20%;
 }
+
 
 .footer-row a {
     color: #6E6362;
     text-decoration: none;
 }
 
+
 .footer-row a:visited {
     text-decoration: none;
     color: #6E6362;
 }
+
 
 .footer-row a:hover {
     text-decoration: underline;
@@ -196,6 +235,7 @@ body, .contact-body {
 
 /* ELEMENTS */
 .wireframe1 nav {
+.wireframe1 nav {
     margin: 0;
     padding: 10px 30px 10px 30px;
     background-color: var(--nav-background-color);
@@ -206,9 +246,11 @@ body, .contact-body {
     display: flex;
 }
 
+
 .wireframe1 nav img {
     margin: 5px 0;
 }
+
 
 .wireframe1 nav button {
     height: 50px;
@@ -223,11 +265,14 @@ body, .contact-body {
     width: 125px;
 }
 
+
 .wireframe1 nav button:hover {
     background-color: #B4A186;
 }
 
+
 .wireframe1 header {
+    background-image: url(../images/header_img.png);
     background-image: url(../images/header_img.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -237,6 +282,7 @@ body, .contact-body {
     padding: 170px 50px 150px;
 }
 
+
 .wireframe1 header h1 {
     margin: 0;
     margin-bottom: 30px;
@@ -245,9 +291,12 @@ body, .contact-body {
     color: var(--nav-background-color);
 }
 
+
 .wireframe1 header p {
     font-size: 20px;
 }
+
+.wireframe1 header button {
 
 .wireframe1 header button {
     width: 280px;
@@ -260,15 +309,19 @@ body, .contact-body {
     margin-top: 100px;
 }
 
+
 .wireframe1 header button:hover {
     background-color: #B4A186;
 }
+
 
 .wireframe1 main {
     margin: 0;
     padding: 0;
     color: #333;
+    color: #333;
 }
+
 
 .wireframe1 main h2 {
     margin: 0;
@@ -278,6 +331,7 @@ body, .contact-body {
     color: #333;
 }
 
+
 footer {
     background-color: var(--footer-background-color);
     color: #6E6362;
@@ -285,12 +339,15 @@ footer {
 }
 
 footer span {
+footer span {
     text-align: center;
 }
+
 
 .wireframe1 #about-us {
     margin-left: 100px;
 }
+
 
 .wireframe1 #divide2 {
     height: 300px;
@@ -303,6 +360,117 @@ footer span {
 #corporate {
     text-align: center;
 }
+
+/* --------------------- Media Queries --------------------- */
+
+/* For Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .wireframe1 .main-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wireframe1 .main-column {
+        font-size: 1.5em;
+        margin: 10px 0;
+    }
+
+    .wireframe1 .divide3 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .wireframe1 .divide2{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .wireframe1 header {
+        padding: 120px 20px 100px;
+    }
+
+    .wireframe1 header h1 {
+        font-size: 45px;
+    }
+
+    .wireframe1 header button {
+        width: 200px;
+        height: 80px;
+        font-size: 24px;
+        margin-top: 60px;
+    }
+
+    footer {
+        padding: 20px;
+    }
+
+    .footer-row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-column {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .wireframe1 nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .wireframe1 nav button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .wireframe1 .main-row,
+    .wireframe1 .main-column {
+        padding: 15px;
+    }
+
+    .align-left, .align-right{
+        text-align: center;
+    }
+}
+
+/* For Desktop Devices (min-width: 769px) */
+@media (min-width: 769px) {
+    .wireframe1 .main-row {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .wireframe1 .main-column {
+        font-size: 2em;
+    }
+
+    .wireframe1 .divide3 {
+        width: 30%;
+    }
+
+    .wireframe1 header h1 {
+        font-size: 70px;
+    }
+
+    .wireframe1 header button {
+        width: 280px;
+        height: 100px;
+        font-size: 30px;
+    }
+
+    .footer-row {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    .footer-column {
+        width: 30%;
+    }
+}
+
+
+
 
 /* --------------------- Media Queries --------------------- */
 
