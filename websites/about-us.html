@@ -3,44 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Our Website</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="../css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- could link to a jquery.js file -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
-
-     <nav>
+<body class="about-us">
+    <nav>
         <ul class="contact">
             <li><a href="../wireframe1.html">HOME</a></li>
             <li><a href="./checker.html">PSEUDOCODE CHECKER</a></li>
             <li><a href="../wireframe1.html#features">FEATURES</a></li>
             <li><a href="./contact-us.html">CONTACT US</a></li>
         </ul>
-     </nav> 
+    </nav>
+
     <header>
         <h1>About Us</h1>
     </header>
 
     <main>
+        <!-- Our Mission Section -->
+        <section id="mission">
+            <h2>Our Mission</h2>
+            <p>
+                At our core, we are passionate about creating intuitive, user-friendly applications
+                that solve real-world problems. Our mission is to continuously learn, improve, and
+                contribute to the tech community by building high-quality software solutions.
+            </p>
+        </section>
+
+        <!-- Team Section -->
         <section id="team">
             <h2>Meet the Creators</h2>
             <div class="slideshow">
-                <div class="slide fade">
-                    <img src="student1.jpg" alt="Student 1">
+                <div class="slide">
+                    <img src="../images/emptyperson.webp" alt="Student 1" width="300">
                     <h3>Wei-Li Hsu</h3>
-                    <p>Wei-Li is a software developer and current Computer programming student at Homber Polytechnic passionate about web development.</p> <!--You can add better info about yourself and more texts here -->
+                    <p>Wei-Li is a software developer and Computer Programming student at Humber Polytechnic, passionate about web development, AI, and problem-solving.</p>
                 </div>
-                <div class="slide fade">
-                    <img src="student2.jpg" alt="Student 2">
+                <div class="slide">
+                    <img src="../images/Blessing.jpeg" alt="Student 2" width="300">
                     <h3>Blessing Kajopelaye-ola</h3>
-                    <p>Blessing is currently studying Computer Programming and Analysis at Humber Polytechnic and has a passion for designing responsive websites.</p>  <!--There could be more texts here, just can't think of much right now -->
+                    <p>Blessing is a Computer Programming and Analysis student at Humber Polytechnic who loves creating responsive websites and user-friendly applications.</p>
                 </div>
             </div>
+            <!-- Navigation Buttons for Slideshow -->
+            <button class="prev">&#10094; Prev</button>
+            <button class="next">Next &#10095;</button>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Wei-Li Hsu & Blessing Kajopelaye-ola</p> 
+        <p>&copy; 2024 Wei-Li Hsu & Blessing Kajopelaye-ola</p>
     </footer>
+
+    <script>
+        $(document).ready(function () {
+            let currentSlide = 0;
+            const slides = $(".slide");
+            const totalSlides = slides.length;
+
+            // Function to show the current slide
+            function showSlide(index) {
+                slides.hide();
+                slides.eq(index).show();
+            }
+
+            // Show the first slide initially
+            showSlide(currentSlide);
+
+            // Next button click event
+            $(".next").click(function () {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            });
+
+            // Previous button click event
+            $(".prev").click(function () {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            });
+        });
+    </script>
 </body>
 </html>

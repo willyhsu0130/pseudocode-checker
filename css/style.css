@@ -416,6 +416,7 @@ footer span{
     padding: 25px;
 }
 
+
 .contact-body nav{
     background-color: var(--nav-background-color);
     position: fixed;
@@ -433,6 +434,7 @@ footer span{
     color: white;
     font-size: 16px;
     font-weight: 800;
+    padding: 15px;
 }
 
 .contact li a:hover{
@@ -485,4 +487,89 @@ label {
 
 .textarea{
     height: 300px;
+}
+
+
+.about-us nav{
+    background-color: var(--nav-background-color);
+    position: fixed;
+    right: 0px;
+    left: 0px;
+    list-style: none;
+}
+
+.about-us nav {
+    background-color: #333;
+}
+
+.about-us nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.about-us nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about-us header {
+    padding: 20px;
+    padding-top: 100px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.about-us main {
+    padding: 20px;
+    padding-bottom: 100px; 
+
+}
+
+.about-us #mission, #team {
+    margin-bottom: 30px;
+}
+
+.about-us .slideshow {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-us .slide {
+    display: none;
+}
+
+.about-us .slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-us button {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.about-us button:hover {
+    background-color: #555;
+}
+
+.about-us footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
