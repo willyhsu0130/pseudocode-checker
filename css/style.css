@@ -329,10 +329,12 @@ footer span {
     }
     .wireframe1 header {
         padding: 120px 20px 100px;
+        color: #565555;
     }
 
     .wireframe1 header h1 {
         font-size: 45px;
+        color: #4F4F4F;
     }
 
     .wireframe1 header button {
