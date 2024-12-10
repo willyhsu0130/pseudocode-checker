@@ -40,26 +40,33 @@ async function processEntry() {
 
 function displayMistakes(mistakes_array) {
     const table = $("#errors");
-    table.innerHTML = "";
-    for (let i = 0; i < mistakes_array.length; i++) {
-        if (mistakes_array[i] != undefined) {
-            const table_row = document.createElement("tr");
-            const index = document.createElement("td");
-            index.textContent = "At line " + (i+1) + ":";
-            table_row.appendChild(index);
-
-            const mistakes = document.createElement("td");
-            mistakes.textContent = mistakes_array[i];
-            table_row.appendChild(mistakes);
-
-            table.appendChild(table_row);
-        }
-    }
-    if(table.innerHTML == ""){
-        let content = "<tr><td>Your pseudocode seems correct!<td><tr>"
+    if($("#pseudocode_input").value == ""){
+        let content = "<tr><td>There is nothing to check here.<td><tr>"
         table.innerHTML = content;
     }
+    else{
+        
+        table.innerHTML = "";
+        for (let i = 0; i < mistakes_array.length; i++) {
+            if (mistakes_array[i] != undefined) {
+                const table_row = document.createElement("tr");
+                const index = document.createElement("td");
+                index.textContent = "At line " + (i+1) + ":";
+                table_row.appendChild(index);
     
+                const mistakes = document.createElement("td");
+                mistakes.textContent = mistakes_array[i];
+                table_row.appendChild(mistakes);
+    
+                table.appendChild(table_row);
+            }
+        }
+        if(table.innerHTML == ""){
+            let content = "<tr><td>Your pseudocode seems correct!<td><tr>"
+            table.innerHTML = content;
+        }
+    }
+
 }
 
 function clearContent() {
