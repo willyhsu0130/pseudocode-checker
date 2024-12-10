@@ -8,16 +8,16 @@ const examples = {
 End Module
 
 Module calculateArea()
-\tDeclare Real length = 0.0
+\tDeclare Real len = 0.0
 \tDeclare Real width = 0.0
 \tDeclare Real area = 0.0
 
 \tDisplay "Enter the length of the rectangle:"
-\tInput l
+\tInput len
 \tDisplay "Enter the width of the rectangle:"
 \tInput width
 
-\tSet area = length * width
+\tSet area = len * width
 \tDisplay "The area of the rectangle is: ", area
 End Module`
 }
@@ -54,6 +54,10 @@ function displayMistakes(mistakes_array) {
 
             table.appendChild(table_row);
         }
+    }
+    if(table.innerHTML == ""){
+        let content = "<tr><td>Your pseudocode seems correct!<td><tr>"
+        table.innerHTML = content;
     }
     
 }
